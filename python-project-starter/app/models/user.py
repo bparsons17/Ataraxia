@@ -8,7 +8,15 @@ class User(db.Model, UserMixin):
   id = db.Column(db.Integer, primary_key = True)
   username = db.Column(db.String(40), nullable = False, unique = True)
   email = db.Column(db.String(255), nullable = False, unique = True)
+  firstname = db.Column(db.String(50), nullable = False)
+  lastname = db.Column(db.String(50), nullable = False)
   hashed_password = db.Column(db.String(255), nullable = False)
+
+  goals = db.relationship("Goal", back_populates="user")
+  journal = db.relationship("Journal", back_populates="user")
+  posts = db.relationship("Post", back_populates="user")
+  comments = db.relationship("Comment", back_populates="user")
+  postLikes = db.relationship("PostLike", back_populates="user")
 
 
   @property
@@ -29,5 +37,7 @@ class User(db.Model, UserMixin):
     return {
       "id": self.id,
       "username": self.username,
-      "email": self.email
+      "email": self.email,
+      "firstname": self.firstname,
+      "lastname": self.lastname
     }

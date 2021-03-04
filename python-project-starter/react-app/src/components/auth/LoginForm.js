@@ -1,21 +1,25 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-import { login } from "../../services/auth";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from '../../store/session'
+// import { login } from "../../services/auth";
+import { Button } from "antd";
 
-const LoginForm = ({ authenticated, setAuthenticated }) => {
+const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const sessionUser = useSelector((state) => state.session.user);
 
-  const onLogin = async (e) => {
+  function onLogin(e) {
     e.preventDefault();
-    const user = await login(email, password);
-    if (!user.errors) {
-      setAuthenticated(true);
-    } else {
-      setErrors(user.errors);
-    }
-  };
+    return dispatch(login({ email, password }));
+  }
+
+  if (sessionUser) {
+    return <Redirect to="/goals" />;
+  }
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -24,11 +28,6 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
   const updatePassword = (e) => {
     setPassword(e.target.value);
   };
-
-  if (authenticated) {
-    return <Redirect to="/" />;
-  }
-
   return (
     <form onSubmit={onLogin}>
       <div>
@@ -55,7 +54,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
           value={password}
           onChange={updatePassword}
         />
-        <button type="submit">Login</button>
+        <Button htmlType="submit">Login</Button>
       </div>
     </form>
   );

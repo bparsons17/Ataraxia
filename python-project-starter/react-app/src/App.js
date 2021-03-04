@@ -4,22 +4,24 @@ import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
+import GoalForm from './components/GoalForm'
 import UsersList from "./components/UsersList";
+import { restoreUser } from "./store/session";
+import { useDispatch, useSelector } from "react-redux";
 import User from "./components/User";
 import { authenticate } from "./services/auth";
 
+
 function App() {
-  const [authenticated, setAuthenticated] = useState(false);
+  const dispatch = useDispatch();
+  // const [authenticated, setAuthenticated] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  const user = useSelector((state)=> state.session.user)
 
   useEffect(() => {
-    (async() => {
-      const user = await authenticate();
-      if (!user.errors) {
-        setAuthenticated(true);
-      }
+    dispatch(restoreUser()).then(() => {
       setLoaded(true);
-    })();
+    });
   }, []);
 
   if (!loaded) {
@@ -28,24 +30,25 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar setAuthenticated={setAuthenticated} />
+      <NavBar  />
       <Switch>
         <Route path="/login" exact={true}>
           <LoginForm
-            authenticated={authenticated}
-            setAuthenticated={setAuthenticated}
           />
         </Route>
+        <ProtectedRoute path="/goals"  authenticated={!!user}>
+          <GoalForm />
+        </ProtectedRoute>
         <Route path="/sign-up" exact={true}>
-          <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} />
+          <SignUpForm  />
         </Route>
-        <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
+        <ProtectedRoute path="/users" exact={true} authenticated={!!user}>
           <UsersList/>
         </ProtectedRoute>
-        <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
+        <ProtectedRoute path="/users/:userId" exact={true} authenticated={!!user}>
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
+        <ProtectedRoute path="/" exact={true} authenticated={!!user}>
           <h1>My Home Page</h1>
         </ProtectedRoute>
       </Switch>

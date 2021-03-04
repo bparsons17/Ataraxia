@@ -1,2 +1,7 @@
 from .db import db
 from .user import User
+from .posts import Post
+from .comments import Comment
+from .postLikes import PostLike
+from .goals import Goal
+from .journals import Journal
