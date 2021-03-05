@@ -1,13 +1,21 @@
 import React from "react";
-import { logout } from "../../services/auth";
+import { logout } from "../../store/session";
+import { useDispatch } from "react-redux";
+import { Button } from "antd";
 
-const LogoutButton = ({setAuthenticated}) => {
+const LogoutButton = () => {
+  const dispatch = useDispatch();
+
   const onLogout = async (e) => {
-    await logout();
-    setAuthenticated(false);
+    console.log("hello");
+    return dispatch(logout());
   };
 
-  return <button onClick={onLogout}>Logout</button>;
+  return (
+    <Button type="link" danger="true" ghost="true" onClick={onLogout}>
+      Logout
+    </Button>
+  );
 };
 
 export default LogoutButton;

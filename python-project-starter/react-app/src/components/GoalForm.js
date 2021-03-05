@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { createGoal } from '../store/goals'
 import { useDispatch, useSelector } from "react-redux";
-import { Row, Col, message, Button } from "antd";
+import { message } from 'antd';
+
+
 
 
 const GoalForm = ({userId}) => {
@@ -46,77 +48,60 @@ const GoalForm = ({userId}) => {
       };
 
       return (
-          <div>
-              <Row>
-            <Col span={7}>
-              <h4>Title</h4>
-            </Col>
+          <div className="outside">
+              <div className="task_size">
 
-            <Col span={5}>
-              <h4>Description</h4>
-            </Col>
-
-            <Col span={5}>
-              <h4>Steps</h4>
-            </Col>
-
-            <Col span={5}>
-              <h4>Deadline</h4>
-            </Col>
             
-            <Col span={4}>
-              <h4>Actions</h4>
-            </Col>
-
-         
-          </Row>
-              <form onSubmit={onTaskCreation}>
-              <Col span={7} className="column_border">
-                <input
-                  className="goal_title"
-                  name="goal_name"
-                  type="text"
-                  placeholder="Enter a Goal name"
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                />
-                </Col>
-                <Col span={5} className="column_border">
-                <input
-                  className="due_date"
-                  name="due_date"
-                  type="date"
-                  placeholder="2021-03-07"
-                  value={deadline}
-                  onChange={(e) => setDeadline(e.target.value)}
-                />
-              </Col>
-              <Col span={5} className="column_border">
-                <input
-                  className="steps"
-                  name="Steps"
-                  type="textarea"
-                  placeholder="steps"
-                  value={steps}
-                  onChange={(e) => setSteps(e.target.value)}
-                />
-              </Col>
-              <Col span={5} className="column_border">
-                <input
-                  className="desciption"
-                  name="description"
-                  type="textarea"
-                  placeholder="Description"
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                />
-              </Col>
-              <Col span={4} className="column_border">
-                <button className="goal_submit_button" type="submit">
-                  Set Goal
-                </button>
-              </Col>
+              <form className='form' onSubmit={onTaskCreation}>
+                <div>
+                    <div className="column_border">
+                        <input
+                        className="goal_title"
+                        name="goal_name"
+                        type="text"
+                        placeholder="Enter a Goal name"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        />
+                        </div>
+                        <div className="column_border">
+                        <input
+                        className="due_date"
+                        name="due_date"
+                        type="date"
+                        placeholder="2021-03-07"
+                        value={deadline}
+                        onChange={(e) => setDeadline(e.target.value)}
+                        />
+                    </div>
+                    <div className="column_border">
+                        <input
+                        className="steps"
+                        name="Steps"
+                        type="textarea"
+                        placeholder="steps"
+                        value={steps}
+                        onChange={(e) => setSteps(e.target.value)}
+                        />
+                    </div>
+                    <div className="column_border">
+                        <input
+                        className="desciption"
+                        name="description"
+                        type="textarea"
+                        placeholder="Description"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                        />
+                    </div>
+                    <div className="column_border">
+                        <button className="goal_submit_button" type="submit">
+                        Set Goal
+                        </button>
+                    </div>
+              </div>
               </form>
+              </div>
           </div>
       )
 }

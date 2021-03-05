@@ -20,7 +20,7 @@ export const login = ({ email, password }) => async (dispatch) => {
     body: JSON.stringify({ email, password }),
   });
   const data = await res.json();
-  console.log(data.id);
+  console.log(data);
   dispatch(setUser(data));
 };
 

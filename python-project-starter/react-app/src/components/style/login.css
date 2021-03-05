@@ -1,0 +1,127 @@
+.center_box {
+    width: 50vh;
+    margin: auto;
+    display: flex;
+    background-color: white;
+    box-shadow: 3px 3px 5px 6px #ccc;
+    border-radius: 2%;
+    padding-top: 3%;
+  }
+  
+  .form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0 1% 1% 0;
+    padding: 2%;
+  }
+  .form_input {
+    border-radius: 2px;
+    padding: 0.75rem;
+    margin: 5px;
+    background-color: none;
+    width: 40vh;
+    border: 2px solid rgba(51, 51, 51, 0.534);
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+  }
+  .submit_button {
+    border: none;
+    padding: 0.75rem;
+    border-radius: 12px;
+    /* font-family: "Poppins", sans-serif; */
+    width: 20vh;
+    margin: 2%;
+    background-color: rgb(100,107,238);
+    color: white;
+  }
+  .form_title {
+    color: #333;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+  }
+  .form_link {
+    color: #1446ad;
+    margin-left: 5px;
+  }
+  .break {
+    width: 23%;
+  }
+  .form_text {
+    text-align: center;
+    margin: 10%;
+  }
+  
+  .project_box {
+    width: 35%;
+    align-self: center;
+  }
+  
+  .project_title {
+    border: none;
+    border-bottom: 1px solid #9ca6af;
+    background-color: #f6f8f9;
+    width: 100%;
+    height: 3vh;
+  }
+  
+  .team_name {
+    border: none;
+    border-bottom: 1px solid #9ca6af;
+    background-color: #f6f8f9;
+    width: 100%;
+    height: 3vh;
+  }
+  
+  .skeleton {
+    width: 50%;
+    height: 50vh;
+    border: 1px solid #333;
+    align-self: center;
+    border: 2px solid #9ca6af;
+    border-radius: 1%;
+  }
+  
+  .project_page {
+    display: flex;
+    height: 80vh;
+    width: 100%;
+    justify-content: space-around;
+  }
+  
+  .skeleton_picture {
+    width: 5vh;
+    height: 5vh;
+    border-radius: 50%;
+    margin-right: 1vh;
+  }
+  
+  .header_div {
+    width: 100%;
+    display: flex;
+    padding: 1vh;
+    justify-content: space-between;
+  }
+  
+  .circle {
+    border-radius: 50%;
+    width: 5vh;
+    height: 5vh;
+    background-color: #9ca6af41;
+    margin: 1vh;
+  }
+  
+  .background {
+    width: 100%;
+    height: 100%;
+    padding: 5%;
+    background-image: url(http://bit.ly/2gPLxZ4);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    
+  }
+  
+  
