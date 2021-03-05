@@ -2,6 +2,11 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
   theme: {
+    extend: {
+      backgroundImage: theme => ({
+        'sick pic': "url('http://bit.ly/2gPLxZ4')"
+       })
+    },
     screens: {
       sm: '480px',
       md: '768px',
