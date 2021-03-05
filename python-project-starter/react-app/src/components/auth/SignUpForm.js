@@ -3,7 +3,6 @@ import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { signUp } from '../../services/auth';
 import { createUser, login } from '../../store/session'
-import { Button } from "antd";
 
 const SignUpForm = ({authenticated, setAuthenticated}) => {
   const [username, setUsername] = useState("");
@@ -129,8 +128,8 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           required={true}
         ></input>
       </div>
-      <Button htmlType="submit">Sign Up</Button>
-      <Button
+      <button type="submit">Sign Up</button>
+      <button
             className="submit_button"
             onClick={demoLogin}
             shape="round"
@@ -139,7 +138,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
             type="primary"
           >
             Demo User
-          </Button>
+          </button>
     </form>
   );
 };

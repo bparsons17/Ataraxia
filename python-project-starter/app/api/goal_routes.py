@@ -16,10 +16,8 @@ def tasks():
 def create_goal():
     form = GoalForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print('jsjsjsjsjsjsj=================')
     if form.validate_on_submit():
-        data = Goal()
-        print(data, '=======================')
+        data = Goal()  
         form.populate_obj(data)
         data.userId = current_user.id
         db.session.add(data)
