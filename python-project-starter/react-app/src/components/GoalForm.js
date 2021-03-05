@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { createGoal } from '../store/goals'
 import { useDispatch, useSelector } from "react-redux";
 import { message } from 'antd';
+import './style/goalform.css'
 
 
 
@@ -29,7 +30,7 @@ const GoalForm = ({userId}) => {
     const [description, setDescription] = useState("");
     const dispatch = useDispatch();
 
-    const onTaskCreation = async (e) => {
+    const onGoalCreation = async (e) => {
         e.preventDefault();
         if (!title) {
           error();
@@ -52,50 +53,52 @@ const GoalForm = ({userId}) => {
               <div className="task_size">
 
             
-              <form className='form' onSubmit={onTaskCreation}>
-                <div>
+              <form className='form' onSubmit={onGoalCreation}>
+                <div className='background2'>
                     <div className="column_border">
+                    <label for="description" className="flex text-sm font-medium text-gray-300">Goal</label>
                         <input
-                        className="goal_title"
+                        className="input shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
                         name="goal_name"
                         type="text"
-                        placeholder="Enter a Goal name"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         />
                         </div>
                         <div className="column_border">
+                        <label for="description" className="flex text-sm font-medium text-gray-300">Goal Date</label>
                         <input
-                        className="due_date"
-                        name="due_date"
+                        className="input shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
+                        name="deadline"
                         type="date"
-                        placeholder="2021-03-07"
                         value={deadline}
                         onChange={(e) => setDeadline(e.target.value)}
                         />
                     </div>
                     <div className="column_border">
-                        <input
-                        className="steps"
+                    <label for="description" className="flex text-sm font-medium text-gray-300">Steps</label>
+                        <textarea
+                        className="input shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
                         name="Steps"
                         type="textarea"
-                        placeholder="steps"
                         value={steps}
                         onChange={(e) => setSteps(e.target.value)}
                         />
                     </div>
                     <div className="column_border">
-                        <input
-                        className="desciption"
-                        name="description"
-                        type="textarea"
-                        placeholder="Description"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                        />
+                    <label for="description" className="flex text-sm font-medium text-gray-300">Description</label>
+                        <div className='mt-1'>
+                            <textarea
+                            className="input shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
+                            name="description"
+                            type="textarea"
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                            />
+                        </div>
                     </div>
-                    <div className="column_border">
-                        <button className="goal_submit_button" type="submit">
+                    <div className="flex flex-row justify-center">
+                        <button className="goal_submit_button " type="submit">
                         Set Goal
                         </button>
                     </div>

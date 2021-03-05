@@ -3,10 +3,11 @@
     margin: auto;
     display: flex;
     background-color: white;
-    box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow: 2px 2px 2px 2px #ccc;
     border-radius: 2%;
     padding-top: 3%;
   }
+
   
   .form {
     width: 100%;
@@ -17,7 +18,7 @@
     padding: 2%;
   }
   .form_input {
-    border-radius: 2px;
+    border-radius: 1px;
     padding: 0.75rem;
     margin: 5px;
     background-color: none;
@@ -52,6 +53,7 @@
   .form_text {
     text-align: center;
     margin: 10%;
+    
   }
   
   .project_box {

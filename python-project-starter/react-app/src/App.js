@@ -36,7 +36,7 @@ function App() {
           <LoginForm
           />
         </Route>
-        <ProtectedRoute path="/goals"  authenticated={!!user}>
+        <ProtectedRoute path="/goals" exact={true} authenticated={!!user}>
           <GoalForm />
         </ProtectedRoute>
         <Route path="/sign-up" exact={true}>
