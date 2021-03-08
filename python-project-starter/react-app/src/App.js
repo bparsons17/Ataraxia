@@ -5,6 +5,8 @@ import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import GoalForm from './components/GoalForm'
+import JournalForm from './components/JournalForm'
+import Goal from './components/Goal'
 import UsersList from "./components/UsersList";
 import { restoreUser } from "./store/session";
 import { useDispatch, useSelector } from "react-redux";
@@ -36,8 +38,16 @@ function App() {
           <LoginForm
           />
         </Route>
+        <ProtectedRoute path='/journals' authenticated={!!user}>
+          <JournalForm />
+        </ProtectedRoute>
+        <ProtectedRoute path="/goal" authenticated={!!user} exact={true}>
+            <Goal />
+        </ProtectedRoute>
         <ProtectedRoute path="/goals" exact={true} authenticated={!!user}>
-          <GoalForm />
+           <GoalForm />
+          
+          
         </ProtectedRoute>
         <Route path="/sign-up" exact={true}>
           <SignUpForm  />

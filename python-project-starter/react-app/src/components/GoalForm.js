@@ -3,6 +3,8 @@ import { createGoal } from '../store/goals'
 import { useDispatch, useSelector } from "react-redux";
 import { message } from 'antd';
 import './style/goalform.css'
+import { Redirect,useHistory } from 'react-router-dom'
+
 
 
 
@@ -29,6 +31,8 @@ const GoalForm = ({userId}) => {
     const [steps, setSteps] = useState("");
     const [description, setDescription] = useState("");
     const dispatch = useDispatch();
+    const history = useHistory()
+
 
     const onGoalCreation = async (e) => {
         e.preventDefault();
@@ -46,6 +50,7 @@ const GoalForm = ({userId}) => {
             description,
           })
         );
+        history.push('/goals')
       };
 
       return (
