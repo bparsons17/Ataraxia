@@ -24,3 +24,15 @@ def create_journal():
         db.session.commit()
         return data.to_dict()
     return 'invalid info'
+
+@journal_routes.route('/<id>')
+def journals(id):
+    journals = Journal.query.filter_by(id=id).all()
+    return {"journals": [journal.to_dict() for journal in journals]}
+
+@journal_routes.route('/<id>', methods=['DELETE'])
+def delete_journal(id):
+    journal = Journal.query.filter_by(id=id).first()
+    db.session.delete(journal)
+    db.session.commit()
+    return journal.to_dict()

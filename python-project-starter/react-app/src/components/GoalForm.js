@@ -50,7 +50,7 @@ const GoalForm = ({userId}) => {
             description,
           })
         );
-        history.push('/goals')
+        history.push('/goal')
       };
 
       return (
