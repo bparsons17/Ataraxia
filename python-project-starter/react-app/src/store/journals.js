@@ -1,5 +1,6 @@
 const SET_JOURNAL = "journal/setJournal";
 const GET_JOURNAL = "journal/getJournal";
+const REMOVE_JOURNAL = "journal/removeJournal";
 
 
 
@@ -12,10 +13,16 @@ const setJournal = (journal) => ({
     type: GET_JOURNAL,
     payload: journal,
   });
+
+  const removeJournal = (journalId) => ({
+    type: REMOVE_JOURNAL,
+    payload: journalId
+  })
   
   export const seeJournal = () => async (dispatch) => {
     const res = await fetch("/api/journals/");
     const data = await res.json();
+    console.log(data)
     dispatch(getJournal(data.journals));
   };
 
@@ -59,9 +66,15 @@ const setJournal = (journal) => ({
         }
         return { ...state, journal: action.payload };
       }
+      case REMOVE_JOURNAL: 
+          const newJournalsArray = state.journal.filter(item => {
+            return item.id !== action.payload.id
+          })
+          return {...state, journal: newJournalsArray}
       
       default:
         return state;
     }
   }
   
+  export default reducer;

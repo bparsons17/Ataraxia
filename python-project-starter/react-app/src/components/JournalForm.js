@@ -23,7 +23,7 @@ const JournalForm = ({userId}) => {
 
     const [text, setText] = useState('')
     const [mood, setMood] = useState('')
-    const [date, setDate] = useState(getCurrentDate)
+    const [currentDate, setCurrentDate] = useState(getCurrentDate)
     const dispatch = useDispatch()
     const history = useHistory();
 
@@ -39,10 +39,10 @@ const JournalForm = ({userId}) => {
             text,
             mood,
             userId,
-            date
+            currentDate
           })
         );
-        history.push('/')
+        history.push('/journals')
       };
 
       return (
@@ -77,11 +77,11 @@ const JournalForm = ({userId}) => {
                   <label for="date" className="flex text-sm font-medium text-gray-300">Date</label>
                   <input
                         className="input shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
-                        placeholder={getCurrentDate}
+                        
                         name="date"
                         type="date"
-                        value={date}
-                        onChange={(e) => setDate(e.target.value)}></input>
+                        value={currentDate}
+                        onChange={(e) => setCurrentDate(e.target.value)}></input>
                   </div>
                   <div className="flex flex-row justify-center">
                         <button className="goal_submit_button " type="submit">

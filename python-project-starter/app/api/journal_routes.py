@@ -1,23 +1,25 @@
 from flask import Blueprint, request, jsonify
 from flask_login import login_required, current_user
 from app.models import Journal, db
-from app.forms import journal_form
+from app.forms import JournalForm
 
 journal_routes = Blueprint('journals', __name__)
 
 @journal_routes.route('/')
 @login_required
-def journal():
+def journals():
     journals = Journal.query.filter_by(userId=current_user.id)
-    return {"journal": [journal.to_dict() for journal in journals]}
+    return {"journals": [journal.to_dict() for journal in journals]}
 
 
 @journal_routes.route('/', methods = ["POST"])
 def create_journal():
     form = JournalForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    print('----------')
     if form.validate_on_submit():
-        data = Journal()  
+        data = Journal()
+        print(data, '----------')  
         form.populate_obj(data)
         data.userId = current_user.id
         db.session.add(data)
@@ -26,7 +28,7 @@ def create_journal():
     return 'invalid info'
 
 @journal_routes.route('/<id>')
-def journals(id):
+def journal(id):
     journals = Journal.query.filter_by(id=id).all()
     return {"journals": [journal.to_dict() for journal in journals]}
 

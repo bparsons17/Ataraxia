@@ -7,6 +7,7 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import Info from './components/Info'
 import GoalForm from './components/GoalForm'
 import JournalForm from './components/JournalForm'
+import Journal from './components/Journal'
 import Goal from './components/Goal'
 import UsersList from "./components/UsersList";
 import { restoreUser } from "./store/session";
@@ -41,6 +42,9 @@ function App() {
         </Route>
         <ProtectedRoute path='/journals' authenticated={!!user}>
           <JournalForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/journal' authenticated={!!user}>
+          <Journal />
         </ProtectedRoute>
         <ProtectedRoute path="/goal" authenticated={!!user} exact={true}>
             <Goal />

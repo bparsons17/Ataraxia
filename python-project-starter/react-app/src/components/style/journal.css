@@ -1,10 +1,50 @@
-.input {
-    padding: 0.75rem;
-    margin: 5px;
-    width: 40vh;
-    background-color: rgba(255, 247, 247, 0.904);
-}
 .outside {
     display: flex;
     justify-content: center;
+}
+.yug{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    padding: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    margin: 5px;
+    width: auto;
+    height: 40vh;
+    box-sizing: border-box;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    /* justify-content: space-around; */
+}
+
+.card_info {
+    margin: 10px;
+}
+
+.button {
+    display: flex;
+    background-color: rgb(100,107,238);
+    
+}
+.button:hover {
+    display: flex;
+    background-color: #8b5cf6;
+    
+}
+.button_div {
+    display: flex;
+    justify-content: flex-end;
 }
