@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Row, Col, Drawer, Tag, Button, Modal } from "antd";
+import {  Button, Modal } from "antd";
 import 'antd/dist/antd.css';
 import { deleteGoal, seeGoal } from "../store/goals";
 
 
 const Info = ({ goal }) => {
-    const [visible, setVisible] = useState(false);
-    const [editVisibility, setEditVisibility] = useState(false);
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const [editVisibility, setEditVisibility] = useState(false);
     const [title, setTitle] = useState(goal.title)
     const [description, setDescription] = useState(goal.description)
     const [deadline, setDeadline] = useState(goal.deadline)
@@ -18,6 +17,14 @@ const Info = ({ goal }) => {
     const goalId = goal.id;
     console.log(goalId)
 
+    function editForm() {
+        if (editVisibility === false) {
+          setEditVisibility(true);
+        }
+        if (editVisibility === true) {
+          setEditVisibility(false);
+        }
+      }
 
     const showModal = () => {
         setIsModalVisible(true);
@@ -44,7 +51,6 @@ const Info = ({ goal }) => {
     });
     const data = await res.json();
     console.log(data)
-    return data
 
     dispatch(seeGoal());
 
@@ -54,28 +60,7 @@ const Info = ({ goal }) => {
         await dispatch(deleteGoal(goal.id))
     }
 
-    const showDrawer = ({ goal }) => {
-        if (visible === false) {
-            setVisible(true);
-        }
-        if (visible === true) {
-            setVisible(false)
-        }
-      };
-
-    const onClose = () => {
-        setVisible(false);
-        setEditVisibility(false);
-    };
-    function editForm() {
-        if (editVisibility === false) {
-          setEditVisibility(true);
-        }
-        if (editVisibility === true) {
-          setEditVisibility(false);
-        }
-      }
-
+  
     return (
         goal !== undefined && (
             <div>
@@ -135,7 +120,7 @@ const Info = ({ goal }) => {
                             />
                         </div>
                         <div>
-                            <Button type="primary" type='submit'>Update Goal</Button>
+                            <button onClick={editForm} type="primary" type='submit'>Update Goal</button>
                         </div>
 
                     </form>

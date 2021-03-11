@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { seeJournal } from '../store/journals'
-
+import JournalEdit from '../components/JournalEdit'
 
 const Journal = ({ id }) => {
     const dispatch = useDispatch();
@@ -32,6 +32,9 @@ const Journal = ({ id }) => {
                         </div>
                         <div className='button_div inline-block mr-2 mt-2'>
                             <button type="submit" className="button focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-purple-400 to-purple-600 transform hover:scale-110">Edit</button>
+                            <button>
+                                <JournalEdit journal={journal} />
+                            </button>
 
                         </div>
 

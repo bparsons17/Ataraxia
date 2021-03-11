@@ -51,6 +51,17 @@ const setJournal = (journal) => ({
     dispatch(setJournal(data));
   };
 
+  export const deleteJournal = (journalId) => async (dispatch) => {
+    console.log("hit");
+    const res = await fetch(`/api/journals/${journalId}`, {
+      method: "DELETE",
+    });
+    
+    const deleted = await res.json();
+    console.log(deleted)
+    dispatch(removeJournal(deleted))
+  };
+
 
   const initialState = { journal: null };
 

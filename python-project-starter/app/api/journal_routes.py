@@ -38,3 +38,23 @@ def delete_journal(id):
     db.session.delete(journal)
     db.session.commit()
     return journal.to_dict()
+
+@journal_routes.route('/update/<id>', methods=['POST'])
+def update_journal(id):
+    journal = Journal.query.filter_by(id=id).first()
+    update = request.data.decode("utf-8")
+    print(update, '---------------------')
+    updated = ast.literal_eval(update)
+    if "text" in updated.keys():
+        text = updated["text"]
+        journal.text = text
+    if "mood" in updated.keys():
+        mood = updated["mood"]
+        journal.mood = mood
+    if "currentDate" in updated.keys():
+        currentDate = updated["currentDate"]
+        journal.currentDate = currentDate
+
+    db.session.commit()
+
+    return journal.to_dict()
