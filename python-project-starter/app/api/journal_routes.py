@@ -2,6 +2,7 @@ from flask import Blueprint, request, jsonify
 from flask_login import login_required, current_user
 from app.models import Journal, db
 from app.forms import JournalForm
+import ast
 
 journal_routes = Blueprint('journals', __name__)
 

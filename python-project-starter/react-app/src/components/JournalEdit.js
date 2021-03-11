@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {  Button, Modal } from "antd";
 import 'antd/dist/antd.css';
-import { deleteJournal } from '../store/journals'
+import { deleteJournal, seeJournal } from '../store/journals'
 
 
 const JournalEdit = ({ journal }) => {
@@ -48,7 +48,8 @@ const JournalEdit = ({ journal }) => {
           });
           const data = await res.json();
           console.log(journal)
-          return data;
+          
+          dispatch(seeJournal())
       }
 
       async function deleteOneJournal() {
@@ -101,7 +102,7 @@ const JournalEdit = ({ journal }) => {
                             />
                         </div>
                         <div>
-                            <Button type="primary" type='submit'>Update Journal</Button>
+                            <button type="primary" type='submit'>Update Journal</button>
                         </div>
 
                       </form>

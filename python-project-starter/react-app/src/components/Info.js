@@ -120,7 +120,7 @@ const Info = ({ goal }) => {
                             />
                         </div>
                         <div>
-                            <button onClick={editForm} type="primary" type='submit'>Update Goal</button>
+                            <button type="primary" type='submit'>Update Goal</button>
                         </div>
 
                     </form>
