@@ -3,11 +3,13 @@ import thunk from "redux-thunk";
 import session from "./session";
 import goal from './goals'
 import journal from './journals'
+import post from './posts'
 
 const rootReducer = combineReducers({
   session,
   goal,
-  journal
+  journal,
+  post
 });
 
 let enhancer;

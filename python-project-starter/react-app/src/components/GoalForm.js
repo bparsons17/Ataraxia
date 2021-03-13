@@ -3,7 +3,7 @@ import { createGoal } from '../store/goals'
 import { useDispatch, useSelector } from "react-redux";
 import { message } from 'antd';
 import './style/goalform.css'
-import { Redirect,useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 
 

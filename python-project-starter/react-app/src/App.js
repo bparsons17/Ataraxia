@@ -14,6 +14,7 @@ import { restoreUser } from "./store/session";
 import { useDispatch, useSelector } from "react-redux";
 import User from "./components/User";
 import { authenticate } from "./services/auth";
+import PostForm from "./components/PostForm";
 
 
 function App() {
@@ -45,6 +46,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/journal' authenticated={!!user}>
           <Journal />
+        </ProtectedRoute>
+        <ProtectedRoute path='/posts' authenticated={!!user}>
+          <PostForm />
         </ProtectedRoute>
         <ProtectedRoute path="/goal" authenticated={!!user} exact={true}>
             <Goal />
