@@ -6,3 +6,4 @@ from .postLikes import PostLike
 from .goals import Goal
 from .journals import Journal
 from .posts import Post
+from .comments import Comment

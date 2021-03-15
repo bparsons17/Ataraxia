@@ -18,6 +18,18 @@ const setPost = (post) => ({
     dispatch(getPost(data.posts));
   };
 
+  export const getPostId = (id) => async (dispatch) => {
+    const res = await fetch(`/api/posts/${id}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+    const data = await res.json();
+    console.log(data)
+    dispatch(getPost(data));
+  };
+
 
   export const createPost = ({
     postText,

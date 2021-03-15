@@ -25,3 +25,10 @@ def create_post():
         db.session.commit()
         return data.to_dict()
     return 'invalid info'
+
+@post_routes.route('/<id>')
+def post(id):
+    posts = Post.query.filter_by(id=id).first()
+    print(posts, '--s-s-s-s--s-s')
+    return {'posts': posts.to_dict()}
+   

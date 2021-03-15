@@ -4,12 +4,13 @@ import session from "./session";
 import goal from './goals'
 import journal from './journals'
 import post from './posts'
-
+import comment from './comments'
 const rootReducer = combineReducers({
   session,
   goal,
   journal,
-  post
+  post,
+  comment
 });
 
 let enhancer;

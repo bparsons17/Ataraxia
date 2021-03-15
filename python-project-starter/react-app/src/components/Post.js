@@ -1,31 +1,36 @@
   
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { seePost } from "../store/posts";
+import { seeOnePost, seePost, getPostId } from "../store/posts";
 import { DeleteOutlined } from '@ant-design/icons'
 import './style/post.css'
 import { unmountComponentAtNode } from "react-dom";
+import CommentForm from "./CommentForm";
+import Comment from './Comments'
+import { useParams } from "react-router-dom";
 
 
 
-const Post = ({post, user}) => {
+const Post = ({post, user,}) => {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state)=> state.session.user)
     const sessionPost = useSelector((state)=> state.post.post)
+    // const postId = useParams()
+    
     
 
-    
-    console.log(sessionPost)
 
     useEffect(()=> {
         dispatch(seePost())
-    }, [])
+        // dispatch(getPostId(postId))
+    }, [post, user])
     return (
         <div>
             {sessionPost && sessionPost.slice(0).reverse().map((post) => (
+                
                 <div className='wrapper'>
                      <div class="flex flex-shrink-0 p-4 pb-0">
-                <a href="#" class="flex-shrink-0 group block">
+                <a href="/post/:postId" class="flex-shrink-0 group block">
                   <div class="flex items-center">
                     {/* <div>
                       <img class="inline-block h-10 w-10 rounded-full" src="https://pbs.twimg.com/profile_images/1121328878142853120/e-rpjoJi_bigger.png" alt="" />
@@ -75,8 +80,16 @@ const Post = ({post, user}) => {
                 </div>
                 
               </div>
+              <div >
+                  <CommentForm postId={post.id}/>
+              </div>
+              <div>
+                  <Comment postId={post.id}/>
+              </div>
               <hr class="border-gray-600"></hr>
+             
                 </div>
+
             ))}
         </div>
     )

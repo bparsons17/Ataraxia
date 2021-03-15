@@ -16,6 +16,7 @@ import User from "./components/User";
 import { authenticate } from "./services/auth";
 import PostForm from "./components/PostForm";
 import Post from "./components/Post";
+import CommentForm from './components/CommentForm'
 
 
 function App() {
@@ -68,6 +69,12 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true} authenticated={!!user}>
           <User />
+        </ProtectedRoute>
+        <ProtectedRoute path="/posts/:id" exact={true} authenticated={!!user}>
+          <Post />
+        </ProtectedRoute>
+        <ProtectedRoute path="/comments" exact={true} authenticated={!!user}>
+          <CommentForm />
         </ProtectedRoute>
         <ProtectedRoute path="/" exact={true} authenticated={!!user}>
           <h1>My Home Page</h1>

@@ -11,6 +11,7 @@ from .api.auth_routes import auth_routes
 from .api.goal_routes import goal_routes
 from .api.journal_routes import journal_routes
 from .api.post_routes import post_routes
+from .api.comment_routes import comment_routes
 
 from .seeds import seed_commands
 
@@ -37,6 +38,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(goal_routes, url_prefix='/api/goals')
 app.register_blueprint(journal_routes, url_prefix='/api/journals')
 app.register_blueprint(post_routes, url_prefix='/api/posts')
+app.register_blueprint(comment_routes, url_prefix='/api/comments')
 db.init_app(app)
 Migrate(app, db)
 

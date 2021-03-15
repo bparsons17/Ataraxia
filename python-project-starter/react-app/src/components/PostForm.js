@@ -5,9 +5,10 @@ import { message } from 'antd';
 import './style/postForm.css'
 import { useHistory } from 'react-router-dom'
 import Post from "./Post";
+import CommentForm from "./CommentForm";
 
 
-const PostForm = ({userId}) => {
+const PostForm = ({post, userId}) => {
     const [postText, setPostText] = useState("");
     const sessionUser = useSelector((state)=> state.session.user)
     console.log(sessionUser.username)
@@ -106,6 +107,7 @@ const PostForm = ({userId}) => {
                   <div>
                 <Post />
               </div>
+             
               </form>
               
           </div>
