@@ -59,7 +59,7 @@ const NavBar = ({ setAuthenticated }) => {
               <a href="/goals" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 text-white px-3 py-2 rounded-md text-sm font-medium">Goals</a>
 
               <a href="/journals" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Journal</a>
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Community</a>
+              <a href="/posts" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Community</a>
               
               </div>
             </div>
@@ -80,10 +80,10 @@ const NavBar = ({ setAuthenticated }) => {
               </div>
               {buttonVisible ? (
                  <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-                 <a href="/profile" className="block px-4 py-2 text-sm text-gray-100 hover:bg-gray-700" role="menuitem">Your Profile</a>
+                 <a href="/profile" className="block px-4 py-2 text-sm text-indigo-500 hover:bg-indigo-800" role="menuitem">Your Profile</a>
  
-                 <a href="/settings" className="block px-4 py-2 text-sm text-gray-100 hover:bg-gray-700" role="menuitem">Settings</a>
-                  <div className="block px-4 py-2 text-sm text-gray-100 hover:bg-gray-700" role="menuitem">
+                 <a href="/settings" className="block px-4 py-2 text-sm text-indigo-500 hover:bg-indigo-800" role="menuitem">Settings</a>
+                  <div className="block px-4 py-2 text-sm text-indigo-500 hover:bg-indigo-700" role="menuitem">
                     <LogoutButton />
                   </div>
                  

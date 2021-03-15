@@ -45,16 +45,11 @@ function App() {
         <ProtectedRoute path='/journals' authenticated={!!user}>
           <JournalForm />
         </ProtectedRoute>
-        <ProtectedRoute path='/post'>
-          <Post />
-
-        </ProtectedRoute>
         <ProtectedRoute path='/journal' authenticated={!!user}>
           <Journal />
         </ProtectedRoute>
         <ProtectedRoute path='/posts' authenticated={!!user}>
           <PostForm />
-          <Post />
          
         </ProtectedRoute>
         <ProtectedRoute path="/goal" authenticated={!!user} exact={true}>
