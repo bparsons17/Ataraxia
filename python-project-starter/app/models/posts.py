@@ -15,9 +15,16 @@ class Post(db.Model):
 
 
     def to_dict(self):
-        return {
+      user = self.user.to_dict()
+      username = user["username"]
+      firstname = user['firstname']
+      lastname = user['lastname']
+      return {
           "id": self.id,
           "postText": self.postText,
-          "userId": self.userId
+          "userId": self.userId,
+          'username': username,
+          'firstname': firstname,
+          'lastname': lastname
         }
 

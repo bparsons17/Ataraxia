@@ -1,0 +1,36 @@
+
+body {
+    background-image: url(http://bit.ly/2gPLxZ4);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: white;
+  
+}
+.postForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.outer-div {
+    display: flex;
+    width: 100%;
+}
+
+.home {
+    display: flex;
+    justify-content: center;
+    border: none;
+}
+.post_btn {
+float: right;
+}
+  
+.nav-container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.group {
+    color: rgb(175, 171, 171);
+}

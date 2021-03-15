@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import User from "./components/User";
 import { authenticate } from "./services/auth";
 import PostForm from "./components/PostForm";
+import Post from "./components/Post";
 
 
 function App() {
@@ -44,11 +45,17 @@ function App() {
         <ProtectedRoute path='/journals' authenticated={!!user}>
           <JournalForm />
         </ProtectedRoute>
+        <ProtectedRoute path='/post'>
+          <Post />
+
+        </ProtectedRoute>
         <ProtectedRoute path='/journal' authenticated={!!user}>
           <Journal />
         </ProtectedRoute>
         <ProtectedRoute path='/posts' authenticated={!!user}>
           <PostForm />
+          <Post />
+         
         </ProtectedRoute>
         <ProtectedRoute path="/goal" authenticated={!!user} exact={true}>
             <Goal />

@@ -12,6 +12,8 @@ const JournalEdit = ({ journal }) => {
     const [currentDate, setCurrentDate] = useState(journal.currentDate)
     const dispatch = useDispatch()
 
+    console.log(journal)
+
     const journalId = journal.id;
 
     // function editForm() {
