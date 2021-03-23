@@ -1,10 +1,34 @@
 const SET_POST = "post/setPost";
+const GET_POST = "goal/getPost";
 
 
 const setPost = (post) => ({
     type: SET_POST,
     payload: post,
   });
+
+  const getPost = (post) => ({
+    type: GET_POST,
+    payload: post,
+  });
+
+  export const seePost = () => async (dispatch) => {
+    const res = await fetch("/api/posts/");
+    const data = await res.json();
+    dispatch(getPost(data.posts));
+  };
+
+  export const getPostId = (id) => async (dispatch) => {
+    const res = await fetch(`/api/posts/${id}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+    const data = await res.json();
+    console.log(data)
+    dispatch(getPost(data));
+  };
 
 
   export const createPost = ({
@@ -32,8 +56,8 @@ const setPost = (post) => ({
   function reducer(state = initialState, action) {
     let newState;
     switch (action.type) {
-        // case GET_GOAL:
-        //     return { ...state, goal: action.payload };
+        case GET_POST:
+            return { ...state, post: action.payload };
         case SET_POST: {
             if (state.post) {
                 const newPost = [...state.post, action.payload];

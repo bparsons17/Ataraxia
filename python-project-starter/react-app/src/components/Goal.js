@@ -10,6 +10,7 @@ const Goal = ({id}) => {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
     const sessionGoals = useSelector((state) => state.goal.goal)
+    
 
     useEffect(()=> {
         dispatch(seeGoal())
@@ -36,10 +37,10 @@ const Goal = ({id}) => {
                 </p>
               </div>
               <div class="px-6 pt-4 pb-2">
-                <button class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Mark as Completed
+                {/* <button class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Mark as Completed
                     
-                </button>
-                <button>
+                </button> */}
+                <button className='rounded-full px-3 py-1'>
                 <Info goal={goal}></Info>
                 </button>
                 

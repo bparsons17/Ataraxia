@@ -1,16 +1,21 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
+
+
+
 import thunk from "redux-thunk";
 import session from "./session";
 import goal from './goals'
 import journal from './journals'
 import post from './posts'
-
+import comment from './comments'
 const rootReducer = combineReducers({
   session,
   goal,
   journal,
-  post
+  post,
+  comment
 });
+
 
 let enhancer;
 
@@ -23,6 +28,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const configureStore = (preloadedState) => {
+  
   return createStore(rootReducer, preloadedState, enhancer);
 };
 

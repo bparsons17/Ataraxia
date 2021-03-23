@@ -7,10 +7,9 @@ import ast
 post_routes = Blueprint('posts', __name__)
 
 @post_routes.route('/')
-@login_required
 def posts():
     posts = Post.query.all()
-    return {'posts', [post.to_dict() for post in posts]}
+    return {'posts': [post.to_dict() for post in posts]}
 
 @post_routes.route('/', methods = ["POST"])
 def create_post():
@@ -26,3 +25,10 @@ def create_post():
         db.session.commit()
         return data.to_dict()
     return 'invalid info'
+
+@post_routes.route('/<id>')
+def post(id):
+    posts = Post.query.filter_by(id=id).first()
+    print(posts, '--s-s-s-s--s-s')
+    return {'posts': posts.to_dict()}
+   
