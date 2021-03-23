@@ -31,8 +31,8 @@ const Journal = ({ id }) => {
                             <div className='card_info2'>{journal.text} </div> 
                         </div>
                         <div className='button_div inline-block mr-2 mt-2'>
-                            <button type="submit" className="button focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-purple-400 to-purple-600 transform hover:scale-110">Edit</button>
-                            <button>
+                            {/* <button type="submit" className="button focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-purple-400 to-purple-600 transform hover:scale-110">Edit</button> */}
+                            <button className="journal_submit_button">
                                 <JournalEdit journal={journal} />
                             </button>
 

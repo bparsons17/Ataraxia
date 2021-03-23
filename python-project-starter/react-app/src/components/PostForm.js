@@ -16,17 +16,17 @@ const PostForm = ({post, userId}) => {
     const dispatch = useDispatch()
     const history = useHistory()
 
-    const error = () => {
-        message.error("Please enter your post!");
-      };
+    // const error = () => {
+    //     message.error("Please enter your post!");
+    //   };
 
 
       const onPostCreation = async (e) => {
         e.preventDefault();
-        if (!postText) {
-          error();
-          return;
-        }
+        // if (!postText) {
+        //   error();
+        //   return;
+        // }
     
         dispatch(
           createPost({
@@ -91,15 +91,7 @@ const PostForm = ({post, userId}) => {
                       onChange={(e)=> setPostText(e.target.value)} >{}</textarea>
                     </div>                    
                 </div>
-                  {/* <div>
-                      <label for='postText'>Post</label>
-                      <input
-                      name='post_text'
-                      type='text'
-                      value={postText}
-                      onChange={(e)=> setPostText(e.target.value)} 
-                      />
-                  </div> */}
+                  
                   <div>
                       <button className='post_btn bg-indigo-500 w-48 mt-5 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full' type='submit'>Post</button>
                   </div>

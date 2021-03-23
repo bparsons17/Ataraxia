@@ -62,20 +62,34 @@
     flex-wrap: wrap;
 }
 
-
+/* 
 .button {
     display: flex;
     background-color: rgb(100,107,238);
     color: white;
     
     
-}
-.button:hover {
+} */
+/* .button:hover {
     display: flex;
     background-color: #8b5cf6;
     
-}
+} */
 .button_div {
     display: flex;
     justify-content: flex-end;
 }
+.journal_submit_button {
+    border: none;
+    padding: 0.75rem;
+    border-radius: 12px;
+    /* font-family: "Poppins", sans-serif; */
+    width: 30vh;
+   
+    margin: 3%;
+    background-color: rgb(100,107,238);
+    color: white;
+    display: flex;
+    justify-content: space-around;
+  
+  }

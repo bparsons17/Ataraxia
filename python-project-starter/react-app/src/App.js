@@ -73,9 +73,9 @@ function App() {
         <ProtectedRoute path="/posts/:id" exact={true} authenticated={!!user}>
           <Post />
         </ProtectedRoute>
-        <ProtectedRoute path="/comments" exact={true} authenticated={!!user}>
+        {/* <ProtectedRoute path="/comments" exact={true} authenticated={!!user}>
           <CommentForm />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <ProtectedRoute path="/" exact={true} authenticated={!!user}>
           <h1>My Home Page</h1>
         </ProtectedRoute>

@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import { createComment } from '../store/comments'
 import { message } from 'antd';
 import { useParams } from "react-router-dom";
+import './style/commentForm.css'
 
 
 const CommentForm = (props) => {

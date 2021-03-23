@@ -42,7 +42,7 @@ const setComment = (comment) => ({
       dispatch(setComment([data]));
   }
 
-  const initialState = { comment: null };
+  const initialState = { comment: null};
 
   function reducer(state = initialState, action) {
     let newState;

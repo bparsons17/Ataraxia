@@ -42,7 +42,7 @@ const JournalForm = ({userId}) => {
             currentDate
           })
         );
-        history.push('/journals')
+        history.push('/journal')
       };
 
       return (
