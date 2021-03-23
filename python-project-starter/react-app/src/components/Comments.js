@@ -30,9 +30,12 @@ const Comment = (props) => {
         comments.filter(com=> com.postId === props.postId).map((comment) => (
           <div key={comments.id} className='comments__container'>
             <div className='comments__user-comment'>
-              <div className='comment__username'>{comment.username}</div>
-              <div className='comment__content'>{comment.commentText}</div>
+              <div className='comment_username'>{comment.username}   </div>
+              <div className='comment_content'>{comment.commentText}</div>
+              
+              {/* <div className='comment__content'>{comment.commentText}</div> */}
             </div>
+            <hr class="border-gray-700"></hr>
           </div>
 
 

@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import { createComment } from '../store/comments'
 import { message } from 'antd';
 import { useParams } from "react-router-dom";
+
 import './style/commentForm.css'
 
 
@@ -19,6 +20,7 @@ const CommentForm = (props) => {
     const error = () => {
         message.error("Please enter a comment!");
       };
+      
 
 
     const onCommentCreation = async (e) => {
@@ -31,8 +33,8 @@ const CommentForm = (props) => {
     }
 
     return (
-        <div>
-            <form className="commentform" onSubmit={onCommentCreation}>
+      <form  onSubmit={onCommentCreation}>
+        <div className='input-div'>
         <input
           className='comment-form'
           placeholder='Add a comment'
@@ -41,8 +43,9 @@ const CommentForm = (props) => {
         <button type='submit' className='comment-form__button'>
           Post
         </button>
-      </form>
         </div>
+      </form>
+        
     )
 }
 

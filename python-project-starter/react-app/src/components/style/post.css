@@ -8,3 +8,28 @@
     color: white;
 }
 
+.dog{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.commentForm {
+    width: 100%;
+    display: flex;
+}
+.icon-comment-holder {
+    display: flex;
+}
+.message-icon {
+    display: flex;
+    align-items: flex-start;
+}
+.comments-div {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+.show-comment-button {
+    color: rgb(177, 177, 177);
+}

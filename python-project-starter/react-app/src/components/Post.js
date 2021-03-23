@@ -8,6 +8,8 @@ import { unmountComponentAtNode } from "react-dom";
 import CommentForm from "./CommentForm";
 import Comment from './Comments'
 import { useParams } from "react-router-dom";
+import {  Button, Modal } from "antd";
+import 'antd/dist/antd.css';
 
 
 
@@ -18,7 +20,22 @@ const Post = ({ post, user, }) => {
     const [isLoaded, setIsLoaded] = useState(false)
     const [showComments, setShowComments] = useState(false)
     const [showCommentForm, setShowCommentForm] = useState(false)
+    const [isModalVisible, setIsModalVisible] = useState(false);
+ 
+    
     // const postId = useParams()
+    const showModal = () => {
+        setIsModalVisible(true);
+      };
+    
+      const handleOk = () => {
+        setIsModalVisible(false);
+      };
+    
+      const handleCancel = () => {
+        setIsModalVisible(false);
+      };
+
 
 
     const showPostComments = () => {
@@ -42,10 +59,7 @@ const Post = ({ post, user, }) => {
         }
 
     }
-    const hidePostCommentForm = () => {
-        setShowCommentForm(false)
-    }
-
+   
 
 
     useEffect(() => {
@@ -94,19 +108,24 @@ const Post = ({ post, user, }) => {
                                     </div>
 
 
-                                    <div class="flex-1 text-center py-2 m-2"> {showCommentForm === false && (
-                                        <button onClick={showPostCommentForm} href="#" class="w-12 mt-1 group flex items-center text-gray-500 px-3 py-2 text-base leading-6 font-medium rounded-full hover:bg-blue-800 hover:text-blue-300">
+                                    <div class="dog flex-1 text-center py-2 m-2"> {showCommentForm === false && (
+                                        <div className='message-icon'>
+                                            
+                                            <button onClick={showPostCommentForm} href="#" class="w-12 mt-1 group flex items-center text-gray-500 px-3 py-2 text-base leading-6 font-medium rounded-full hover:bg-blue-800 hover:text-blue-300">
                                             <svg class="text-center h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
 
-                                        </button>
-                                    )}
+                                            </button>
+                                             
+                                        </div> 
+                             )}
                                         {showCommentForm && (
-                                            <div>
-                                                <button onClick={showPostCommentForm} href="#" class="w-12 mt-1 group flex items-center text-gray-500 px-3 py-2 text-base leading-6 font-medium rounded-full hover:bg-blue-800 hover:text-blue-300">
+                                            <div className='icon-comment-holder'>
+                                                <div onClick={showPostCommentForm} href="#" class="w-12 mt-1 group flex items-center text-gray-500 px-3 py-2 text-base leading-6 font-medium rounded-full hover:bg-blue-800 hover:text-blue-300">
                                                     <svg class="text-center h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                            
 
-                                                </button>
-                                                <div>
+                                                </div>
+                                                <div className='commentForm'>
                                                     <CommentForm postId={post.id} />
                                                 </div>
 
@@ -116,21 +135,13 @@ const Post = ({ post, user, }) => {
 
                                         )}
                                         <div>
-                                            <div> {showComments === false && (
-                                                <button onClick={showPostComments}>showComments</button>
-                                            )}
-                                                {showComments && (
-                                                    <div>
-                                                        <Comment postId={post.id} />
-                                                        <button onClick={hidePostComments}>Hide Comments</button>
-                                                    </div>
-                                                )}
-                                            </div>
+                                           
                                         </div>
                                     </div>
                                     <div>
                                         <DeleteOutlined class="w-12 mt-1 group flex items-center text-gray-500 px-3 py-2 text-base leading-6 font-medium rounded-full hover:bg-blue-800 hover:text-blue-300" />
                                     </div>
+                                    
 
 
                                 </div>
@@ -140,6 +151,17 @@ const Post = ({ post, user, }) => {
                         </div>
 
                     </div>
+                    <div className='comment-section'> {showComments === false && (
+                                                <button className='show-comment-button' onClick={showPostComments}>Show Comments</button>
+                                            )}
+                                                {showComments && (
+                                                    <div className='comments-div'>
+                                                        <button className='show-comment-button' onClick={hidePostComments}>Hide Comments</button>
+                                                        <Comment postId={post.id} />
+                                                        
+                                                    </div>
+                                                )}
+                                            </div>
 
 
                     <hr class="border-gray-600"></hr>
