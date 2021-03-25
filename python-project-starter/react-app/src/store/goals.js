@@ -49,7 +49,6 @@ const removeGoal = (goalId) => ({
   };
 
   export const deleteGoal = (goalId) => async (dispatch) => {
-    console.log("hit");
     const res = await fetch(`/api/goals/${goalId}`, {
       method: "DELETE",
     });

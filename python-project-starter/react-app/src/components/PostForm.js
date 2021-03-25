@@ -9,16 +9,20 @@ import CommentForm from "./CommentForm";
 
 
 const PostForm = ({post, userId}) => {
-    const [postText, setPostText] = useState("");
+    const [postText, setPostText] = useState('');
     const sessionUser = useSelector((state)=> state.session.user)
     console.log(sessionUser.username)
     
     const dispatch = useDispatch()
     const history = useHistory()
 
-    // const error = () => {
-    //     message.error("Please enter your post!");
-    //   };
+    const error = () => {
+        message.error("Please enter your post!");
+      };
+
+      const clearState = () => {
+        setPostText('')
+      }
 
 
       const onPostCreation = async (e) => {
@@ -32,9 +36,11 @@ const PostForm = ({post, userId}) => {
           createPost({
             postText,
             userId
-          })
+          },[])
+          
         );
-        history.push('/posts')
+        await clearState()
+        // history.push('/posts')
       };
 
       return (

@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import {useSelector, useDispatch} from 'react-redux'
 import { createComment } from '../store/comments'
 import { message } from 'antd';
-import { useParams } from "react-router-dom";
+
+
 
 import './style/commentForm.css'
 
@@ -13,6 +14,8 @@ const CommentForm = (props) => {
     const dispatch = useDispatch();
     const postId = props.postId
     
+   
+    
     
     const userId = sessionUser.id
     console.log(userId)
@@ -21,6 +24,9 @@ const CommentForm = (props) => {
         message.error("Please enter a comment!");
       };
       
+    const clearSate = () => {
+      setCommentText('')
+    }
 
 
     const onCommentCreation = async (e) => {
@@ -30,12 +36,15 @@ const CommentForm = (props) => {
           return;
         }
         dispatch(createComment(commentText, userId, postId ),[])
+        await clearSate()
+        
     }
 
     return (
       <form  onSubmit={onCommentCreation}>
         <div className='input-div'>
         <input
+          value={commentText}
           className='comment-form'
           placeholder='Add a comment'
           onChange={(e) => setCommentText(e.target.value)}

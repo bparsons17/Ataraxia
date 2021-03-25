@@ -70,9 +70,6 @@ function App() {
         <ProtectedRoute path="/users/:userId" exact={true} authenticated={!!user}>
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path="/posts/:id" exact={true} authenticated={!!user}>
-          <Post />
-        </ProtectedRoute>
         {/* <ProtectedRoute path="/comments" exact={true} authenticated={!!user}>
           <CommentForm />
         </ProtectedRoute> */}

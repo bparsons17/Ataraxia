@@ -7,37 +7,24 @@ import './style/post.css'
 import { unmountComponentAtNode } from "react-dom";
 import CommentForm from "./CommentForm";
 import Comment from './Comments'
+import PostDelete from './PostDelete'
 import { useParams } from "react-router-dom";
 import {  Button, Modal } from "antd";
 import 'antd/dist/antd.css';
 
 
 
-const Post = ({ post, user, }) => {
+const Post = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user)
     const sessionPost = useSelector((state) => state.post.post)
     const [isLoaded, setIsLoaded] = useState(false)
     const [showComments, setShowComments] = useState(false)
     const [showCommentForm, setShowCommentForm] = useState(false)
-    const [isModalVisible, setIsModalVisible] = useState(false);
+    
+
  
     
-    // const postId = useParams()
-    const showModal = () => {
-        setIsModalVisible(true);
-      };
-    
-      const handleOk = () => {
-        setIsModalVisible(false);
-      };
-    
-      const handleCancel = () => {
-        setIsModalVisible(false);
-      };
-
-
-
     const showPostComments = () => {
         if (showComments === false) {
             setShowComments(true)
@@ -47,9 +34,7 @@ const Post = ({ post, user, }) => {
         }
 
     }
-    const hidePostComments = () => {
-        setShowComments(false)
-    }
+   
     const showPostCommentForm = () => {
         if (showCommentForm === false) {
             setShowCommentForm(true)
@@ -59,15 +44,13 @@ const Post = ({ post, user, }) => {
         }
 
     }
-   
-
 
     useEffect(() => {
         dispatch(seePost()).then(() => {
             setIsLoaded(true)
         })
-        // dispatch(getPostId(postId))
-    }, [post, user])
+    }, [])
+    
     return (
         <div>
             {isLoaded && sessionPost.slice(0).reverse().map((post) => (
@@ -76,9 +59,6 @@ const Post = ({ post, user, }) => {
                     <div class="flex flex-shrink-0 p-4 pb-0">
                         <a href="/post/:postId" class="flex-shrink-0 group block">
                             <div class="flex items-center">
-                                {/* <div>
-                      <img class="inline-block h-10 w-10 rounded-full" src="https://pbs.twimg.com/profile_images/1121328878142853120/e-rpjoJi_bigger.png" alt="" />
-                    </div> */}
                                 <div class="ml-3">
                                     <p class="text-base leading-6 font-medium text-white">
                                         {post.firstname} {post.lastname}
@@ -138,9 +118,9 @@ const Post = ({ post, user, }) => {
                                            
                                         </div>
                                     </div>
-                                    <div>
-                                        <DeleteOutlined class="w-12 mt-1 group flex items-center text-gray-500 px-3 py-2 text-base leading-6 font-medium rounded-full hover:bg-blue-800 hover:text-blue-300" />
-                                    </div>
+                                        
+                                    <PostDelete post={post} />
+                                   
                                     
 
 
@@ -156,7 +136,7 @@ const Post = ({ post, user, }) => {
                                             )}
                                                 {showComments && (
                                                     <div className='comments-div'>
-                                                        <button className='show-comment-button' onClick={hidePostComments}>Hide Comments</button>
+                                                        <button className='show-comment-button' onClick={showPostComments}>Hide Comments</button>
                                                         <Comment postId={post.id} />
                                                         
                                                     </div>

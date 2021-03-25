@@ -20,7 +20,6 @@ const setComment = (comment) => ({
 
   export const createComment = (
       
-      
       commentText,
       userId,
       postId
@@ -45,7 +44,7 @@ const setComment = (comment) => ({
   const initialState = { comment: null};
 
   function reducer(state = initialState, action) {
-    let newState;
+    
     switch (action.type) {
         case GET_COMMENT:
             return { ...state, comment: action.payload };

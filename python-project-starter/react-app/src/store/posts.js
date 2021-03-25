@@ -1,5 +1,6 @@
 const SET_POST = "post/setPost";
 const GET_POST = "goal/getPost";
+const REMOVE_POST = "goal/removePost";
 
 
 const setPost = (post) => ({
@@ -11,6 +12,11 @@ const setPost = (post) => ({
     type: GET_POST,
     payload: post,
   });
+
+  const removePost = (postId) => ({
+    type: REMOVE_POST,
+    payload: postId
+  })
 
   export const seePost = () => async (dispatch) => {
     const res = await fetch("/api/posts/");
@@ -51,10 +57,21 @@ const setPost = (post) => ({
     dispatch(setPost(data));
   };
 
+  export const deletePost = (postId) => async (dispatch) => {
+    console.log('hit')
+    const res = await fetch(`/api/posts/${postId}`, {
+      method: "DELETE",
+    })
+    console.log(res)
+    const deleted = await res.json();
+    console.log(deleted)
+    dispatch(removePost(deleted))
+  }
+
   const initialState = { post: null };
 
   function reducer(state = initialState, action) {
-    let newState;
+    
     switch (action.type) {
         case GET_POST:
             return { ...state, post: action.payload };
@@ -65,11 +82,11 @@ const setPost = (post) => ({
         }
         return { ...state, post: action.payload };
       }
-    //    case REMOVE_GOAL: 
-    //       const newGoalsArray = state.goal.filter(item => {
-    //         return item.id !== action.payload.id
-    //       })
-    //       return {...state, goal: newGoalsArray}
+       case REMOVE_POST: 
+          const newPostsArray = state.post.filter(item => {
+            return item.id !== action.payload.id
+          })
+          return {...state, post: newPostsArray}
       
       default:
         return state;
