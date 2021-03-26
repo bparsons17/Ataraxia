@@ -18,13 +18,12 @@ const CommentForm = (props) => {
     
     
     const userId = sessionUser.id
-    console.log(userId)
 
     const error = () => {
         message.error("Please enter a comment!");
       };
       
-    const clearSate = () => {
+    const clearState = () => {
       setCommentText('')
     }
 
@@ -36,20 +35,20 @@ const CommentForm = (props) => {
           return;
         }
         dispatch(createComment(commentText, userId, postId ),[])
-        await clearSate()
+        await clearState()
         
     }
 
     return (
       <form  onSubmit={onCommentCreation}>
-        <div className='input-div'>
+        <div className='input-div border-l-2 border-r-2 border-b-2 border-gray-600 mt-3'>
         <input
           value={commentText}
-          className='comment-form'
+          className='comment-form  bg-transparent text-gray-300 font-medium text-lg w-full '
           placeholder='Add a comment'
           onChange={(e) => setCommentText(e.target.value)}
         ></input>
-        <button type='submit' className='comment-form__button'>
+        <button type='submit' className='comment-form__button border-l-2 border-gray-600'>
           Post
         </button>
         </div>

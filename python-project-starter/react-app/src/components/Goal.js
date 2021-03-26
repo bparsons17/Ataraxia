@@ -6,10 +6,11 @@ import 'antd/dist/antd.css';
 import './style/goal.css'
 import Info from '../components/Info'
 
-const Goal = ({id}) => {
+const Goal = ({user, goal}) => {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
-    const sessionGoals = useSelector((state) => state.goal.goal)
+    const sessionGoals = useSelector((state) => (state.goal.goal))
+    console.log(sessionGoals)
     
 
     useEffect(()=> {
@@ -21,7 +22,7 @@ const Goal = ({id}) => {
     return (
     <div className='yug'>{sessionGoals && 
         sessionGoals.map((goal)=> (
-            <div class="p-10">  
+            <div key={goal.id} class="p-10">  
             <div class="card max-w-sm rounded overflow-hidden shadow-lg">
               <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2">{goal.title}</div>

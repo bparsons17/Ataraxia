@@ -17,14 +17,7 @@ const Info = ({ goal }) => {
     const goalId = goal.id;
     console.log(goalId)
 
-    function editForm() {
-        if (editVisibility === false) {
-          setEditVisibility(true);
-        }
-        if (editVisibility === true) {
-          setEditVisibility(false);
-        }
-      }
+    
 
     const showModal = () => {
         setIsModalVisible(true);

@@ -1,5 +1,6 @@
-const SET_COMMENT = "goal/setComment";
-const GET_COMMENT = "goal/getComment";
+const SET_COMMENT = "comment/setComment";
+const GET_COMMENT = "comment/getComment";
+const REMOVE_COMMENT = "comment/removeComment";
 
 
 const setComment = (comment) => ({
@@ -11,6 +12,11 @@ const setComment = (comment) => ({
     type: GET_COMMENT,
     payload: comment,
   });
+
+  const removeComment = (comment) => ({
+    type: REMOVE_COMMENT,
+    payload: comment
+  })
 
   export const seeComments = () => async (dispatch) => {
     const res = await fetch("/api/comments/");
@@ -41,6 +47,31 @@ const setComment = (comment) => ({
       dispatch(setComment([data]));
   }
 
+
+  export const getCommentId = (id) => async (dispatch) => {
+    const res = await fetch(`/api/comments/${id}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+    const data = await res.json();
+    console.log(data)
+    dispatch(getComment(data));
+  };
+
+  export const deleteComment = (commentId) => async (dispatch) => {
+    console.log('hit')
+    const res = await fetch(`/api/comments/${commentId}`, {
+      method: "DELETE",
+    })
+    console.log(res)
+    const deleted = await res.json();
+    console.log(deleted)
+    dispatch(removeComment(deleted))
+  }
+
+
   const initialState = { comment: null};
 
   function reducer(state = initialState, action) {
@@ -55,11 +86,11 @@ const setComment = (comment) => ({
         }
         return { ...state, comment: action.payload };
       }
-    //    case REMOVE_GOAL: 
-    //       const newGoalsArray = state.goal.filter(item => {
-    //         return item.id !== action.payload.id
-    //       })
-    //       return {...state, goal: newGoalsArray}
+       case REMOVE_COMMENT: 
+          const newCommentsArray = state.comment.filter(item => {
+            return item.id !== action.payload.id
+          })
+          return {...state, comment: newCommentsArray}
       
       default:
         return state;

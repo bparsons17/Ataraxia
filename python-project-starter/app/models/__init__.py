@@ -7,3 +7,4 @@ from .goals import Goal
 from .journals import Journal
 from .posts import Post
 from .comments import Comment
+from .postLikes import PostLike

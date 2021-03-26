@@ -63,7 +63,7 @@ const setJournal = (journal) => ({
   };
 
 
-  const initialState = { journal: null };
+  const initialState = { journal: [{}] };
 
   function reducer(state = initialState, action) {
     let newState;

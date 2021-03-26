@@ -12,6 +12,7 @@ from .api.goal_routes import goal_routes
 from .api.journal_routes import journal_routes
 from .api.post_routes import post_routes
 from .api.comment_routes import comment_routes
+from .api.postLike_routes import postLike_routes
 
 from .seeds import seed_commands
 
@@ -39,6 +40,7 @@ app.register_blueprint(goal_routes, url_prefix='/api/goals')
 app.register_blueprint(journal_routes, url_prefix='/api/journals')
 app.register_blueprint(post_routes, url_prefix='/api/posts')
 app.register_blueprint(comment_routes, url_prefix='/api/comments')
+app.register_blueprint(postLike_routes, url_prefix='/api/postLikes')
 db.init_app(app)
 Migrate(app, db)
 

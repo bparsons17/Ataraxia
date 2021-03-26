@@ -58,7 +58,7 @@ const removeGoal = (goalId) => ({
     dispatch(removeGoal(deleted))
   };
 
-  const initialState = { goal: null };
+  const initialState = { goal: [{}]};
 
   function reducer(state = initialState, action) {
     let newState;

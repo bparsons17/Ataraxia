@@ -24,6 +24,8 @@ function App() {
   // const [authenticated, setAuthenticated] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const user = useSelector((state)=> state.session.user)
+  const goal = useSelector((state) => state.goal.goal)
+  const posts = useSelector((state)=> state.post.post)
 
   useEffect(() => {
     dispatch(restoreUser()).then(() => {
@@ -50,7 +52,7 @@ function App() {
           <Journal />
         </ProtectedRoute>
         <ProtectedRoute path='/posts' authenticated={!!user}>
-          <PostForm />
+          <PostForm posts={posts}/>
          
         </ProtectedRoute>
         <ProtectedRoute path="/goal" authenticated={!!user} exact={true}>

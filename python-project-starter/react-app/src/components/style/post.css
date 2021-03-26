@@ -1,6 +1,10 @@
 .wrapper {
     display: flex;
     flex-direction: column;
+    /* border-left: rgb(173, 173, 173) solid 1px; */
+    /* border-right: rgb(173, 173, 173) solid 1px; */
+    margin-top: 50px;
+    margin-bottom: 50px;
     
     width: 100%;
 }
@@ -33,3 +37,4 @@
 .show-comment-button {
     color: rgb(177, 177, 177);
 }
+

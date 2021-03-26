@@ -37,7 +37,6 @@ def new_comment():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         data = Comment()
-        print('-----',data)
         form.populate_obj(data)
         data.userId = current_user.id
         db.session.add(data)
@@ -45,3 +44,19 @@ def new_comment():
         return data.to_dict()
 
     return 'bad data'
+
+@comment_routes.route('/<id>')
+@login_required
+def comment(id):
+    comments = Comment.query.filter_by(id=id).one()
+    # print(posts, '--s-s-s-s--s-s')
+    return comments.to_dict()
+
+@comment_routes.route('/<id>', methods=['DELETE'])
+@login_required
+def delete_comment(id):
+    comment = Comment.query.get(id)
+    print('alalallalaal', comment)
+    db.session.delete(comment)
+    db.session.commit()
+    return comment.to_dict()

@@ -1,6 +1,7 @@
 const SET_POST = "post/setPost";
-const GET_POST = "goal/getPost";
-const REMOVE_POST = "goal/removePost";
+const GET_POST = "post/getPost";
+const REMOVE_POST = "post/removePost";
+const LIKES =  "post/likes"
 
 
 const setPost = (post) => ({
@@ -17,6 +18,11 @@ const setPost = (post) => ({
     type: REMOVE_POST,
     payload: postId
   })
+  const likes = (post) => ({
+    type: LIKES,
+    payload: post
+
+  })
 
   export const seePost = () => async (dispatch) => {
     const res = await fetch("/api/posts/");
@@ -24,8 +30,9 @@ const setPost = (post) => ({
     dispatch(getPost(data.posts));
   };
 
-  export const getPostId = (id) => async (dispatch) => {
-    const res = await fetch(`/api/posts/${id}`, {
+  export const setLike = (id) => async (dispatch) => {
+    const { postId } = id
+    const res = await fetch(`/api/posts/${postId}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -33,7 +40,8 @@ const setPost = (post) => ({
     });
     const data = await res.json();
     console.log(data)
-    dispatch(getPost(data));
+    dispatch(likes(data));
+    return res
   };
 
 
@@ -58,17 +66,15 @@ const setPost = (post) => ({
   };
 
   export const deletePost = (postId) => async (dispatch) => {
-    console.log('hit')
     const res = await fetch(`/api/posts/${postId}`, {
       method: "DELETE",
     })
-    console.log(res)
     const deleted = await res.json();
-    console.log(deleted)
     dispatch(removePost(deleted))
   }
 
-  const initialState = { post: null };
+
+  const initialState = {};
 
   function reducer(state = initialState, action) {
     
@@ -87,6 +93,11 @@ const setPost = (post) => ({
             return item.id !== action.payload.id
           })
           return {...state, post: newPostsArray}
+        case LIKES:
+            const newPosts = { ...state };
+            const index = action.post.id;
+            newPosts[index] = action.post;
+            return newPosts;
       
       default:
         return state;

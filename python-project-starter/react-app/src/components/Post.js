@@ -8,22 +8,22 @@ import { unmountComponentAtNode } from "react-dom";
 import CommentForm from "./CommentForm";
 import Comment from './Comments'
 import PostDelete from './PostDelete'
+import setLike from '../store/posts'
 import { useParams } from "react-router-dom";
 import {  Button, Modal } from "antd";
 import 'antd/dist/antd.css';
 
 
 
-const Post = () => {
+const Post = ({props}) => {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user)
     const sessionPost = useSelector((state) => state.post.post)
+    const comments = useSelector((state)=> state.comment.comment)
     const [isLoaded, setIsLoaded] = useState(false)
     const [showComments, setShowComments] = useState(false)
     const [showCommentForm, setShowCommentForm] = useState(false)
-    
-
- 
+    // const [liked, setLiked] = useState(false)
     
     const showPostComments = () => {
         if (showComments === false) {
@@ -45,17 +45,36 @@ const Post = () => {
 
     }
 
+    // const postLike = (like) => async (dispatch) => {
+    //     const res = await fetch(`/api/postLikes/`, {
+    //       method: "POST",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //       body: JSON.stringify(like),
+    //     });
+        
+    //     if (res.ok) {
+    //         const liked = await res.json()
+    //       dispatch(setLike(like));
+    //       return res;
+    //     }
+    //   };
+    
+    
+
     useEffect(() => {
         dispatch(seePost()).then(() => {
             setIsLoaded(true)
         })
     }, [])
+
     
     return (
         <div>
             {isLoaded && sessionPost.slice(0).reverse().map((post) => (
 
-                <div key={sessionPost.id} className='wrapper'>
+                <div key={sessionPost.id} className='wrapper border-l-2 border-r-2 border-gray-600'>
                     <div class="flex flex-shrink-0 p-4 pb-0">
                         <a href="/post/:postId" class="flex-shrink-0 group block">
                             <div class="flex items-center">
@@ -70,7 +89,7 @@ const Post = () => {
                             </div>
                         </a>
                     </div>
-                    <div class="pl-16">
+                    <div class="pl-10 pr-10">
                         <p class="text-base width-auto font-medium text-white flex-shrink">
                             {post.postText}
                         </p>
@@ -106,7 +125,7 @@ const Post = () => {
 
                                                 </div>
                                                 <div className='commentForm'>
-                                                    <CommentForm postId={post.id} />
+                                                    <CommentForm postId={post.id}  />
                                                 </div>
 
 
@@ -132,19 +151,19 @@ const Post = () => {
 
                     </div>
                     <div className='comment-section'> {showComments === false && (
-                                                <button className='show-comment-button' onClick={showPostComments}>Show Comments</button>
+                                                <button className='show-comment-button m-5' onClick={showPostComments}>Show Comments</button>
                                             )}
                                                 {showComments && (
                                                     <div className='comments-div'>
-                                                        <button className='show-comment-button' onClick={showPostComments}>Hide Comments</button>
-                                                        <Comment postId={post.id} />
+                                                        <button className='show-comment-button m-5' onClick={showPostComments}>Hide Comments</button>
+                                                        <Comment postId={post.id} comments={comments} />
                                                         
                                                     </div>
                                                 )}
                                             </div>
 
 
-                    <hr class="border-gray-600"></hr>
+                    <hr class="border-b-2 border-gray-600"></hr>
 
                 </div>
 
