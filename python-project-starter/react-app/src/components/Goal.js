@@ -5,6 +5,7 @@ import {Button} from 'antd'
 import 'antd/dist/antd.css';
 import './style/goal.css'
 import Info from '../components/Info'
+import {Route} from 'react-router-dom'
 
 const Goal = ({user, goal}) => {
     const dispatch = useDispatch();
@@ -17,38 +18,51 @@ const Goal = ({user, goal}) => {
         dispatch(seeGoal())
     }, [])
 
+
     console.log(sessionGoals)
 
     return (
     <div className='yug'>{sessionGoals && 
         sessionGoals.map((goal)=> (
-            <div key={goal.id} class="p-10">  
+          <div className='col-1'>
+            <div key={goal.id} class="idk p-5">  
             <div class="card max-w-sm rounded overflow-hidden shadow-lg">
-              <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2">{goal.title}</div>
-                <p class="text-gray-700 text-base">
+              <div class="input-holder px-6 py-4">
+        <div class="title font-bold text-xl mb-2">{goal.title}</div>
+                <p class="p-tags text-gray-700 text-base">
                   Goal Description: {goal.description}
                 </p>
-                <p class="text-gray-700 text-base">
+                <p class="p-tags text-gray-700 text-base">
                     Steps to complete goal: {goal.steps}
 
                 </p>
-                <p class="text-gray-700 text-base">
+                <p class="p-tags text-gray-700 text-base">
                     Accoplish by: {goal.deadline}
                 </p>
               </div>
-              <div class="px-6 pt-4 pb-2">
+              <div class="px-3 pt-2 pb-2">
                 {/* <button class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Mark as Completed
                     
                 </button> */}
-                <button className='rounded-full px-3 py-1'>
+                <div className='btn-holder rounded-full'>
                 <Info goal={goal}></Info>
-                </button>
+                </div>
                 
               </div>
             </div>
           </div>
-        )) }</div>
+           </div>
+        )) }
+        {/* <div className='col-2'>
+          <div className='anchor'>
+            <a href='/goals' className='goal_submit_button2'>Create New Goal</a>
+          </div>
+          <div className='mark-btn'>
+          <a className='goal_submit_button3'>Mark Completed</a>
+          </div>
+        </div>
+         */}
+        </div>
     )
 }
 
