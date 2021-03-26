@@ -1,5 +1,6 @@
 .yug {
     display: flex;
+
     flex-wrap: wrap;
     width: 100%;
     height: 100%;
@@ -14,4 +15,20 @@
     background-color:rgb(231, 229, 229);
     box-shadow: 2px 2px 2px 2px #ccc;
     border-radius: 2%;
+    justify-content: center;
+}
+
+.btn-holder {
+    display: flex;
+    justify-content: center;
+}
+.input-holder {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.p-tags {
+    margin: 5px;
+    display: flex;
 }

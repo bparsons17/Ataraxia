@@ -17,14 +17,7 @@ const Info = ({ goal }) => {
     const goalId = goal.id;
     console.log(goalId)
 
-    function editForm() {
-        if (editVisibility === false) {
-          setEditVisibility(true);
-        }
-        if (editVisibility === true) {
-          setEditVisibility(false);
-        }
-      }
+    
 
     const showModal = () => {
         setIsModalVisible(true);
@@ -68,9 +61,9 @@ const Info = ({ goal }) => {
 
                 <Modal
                   visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} footer={[
-                    <Button type='primary' onClick={deleteOneGoal}>Delete</Button>,
-                    <Button key="submit" type="primary" onClick={handleOk}>
-              Submit Changes </Button>,
+                    ,
+                    <button key="submit" type="submit" onClick={handleOk} onSubmit={onGoalUpdate}>
+              Close </button>,
   
                   ]}
                 >
@@ -119,8 +112,10 @@ const Info = ({ goal }) => {
                                 onChange={(e) => setDeadline(e.target.value)}
                             />
                         </div>
-                        <div>
-                            <button type="primary" type='submit'>Update Goal</button>
+                        <div className='update'>
+                        <button type='primary' onClick={deleteOneGoal}>Delete Goal</button>
+                            <button type='primary' style={{float:'right'}, {padding: '3px'}, {margin:'3px'} } type='submit'>Update Goal</button>
+                            
                         </div>
 
                     </form>

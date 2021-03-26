@@ -7,7 +7,7 @@
     flex-direction: column;
     align-content: center;
     padding: 10px;
-    font-size: 30px;
+    /* font-size: 30px; */
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -39,7 +39,8 @@
     color: rgb(88,94,103);
     font-size: 30px;
     font-weight: bold;
-    box-shadow: 2px 2px 2px 2px #ccc;
+    border-bottom: 1px solid;
+    /* box-shadow: 1px 1px 1px 1px #ccc; */
     border-radius: 2%;
     font-family: Arial, Helvetica, sans-serif;
     padding: 5px;
@@ -47,9 +48,12 @@
 
 .p {
     display: flex;
-    flex-direction: row;
+    align-self: center;
 }
-
+.journal-title {
+    display: flex;
+    justify-content: center;
+}
 .card_info {
     margin: 5px;
     display: flex;
@@ -61,7 +65,16 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
-
+.header-tag{
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+}
+.btn-holder {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
 /* 
 .button {
     display: flex;
@@ -77,14 +90,14 @@
 } */
 .button_div {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
 }
 .journal_submit_button {
     border: none;
     padding: 0.75rem;
     border-radius: 12px;
     /* font-family: "Poppins", sans-serif; */
-    width: 30vh;
+    width: 15vh;
    
     margin: 3%;
     background-color: rgb(100,107,238);

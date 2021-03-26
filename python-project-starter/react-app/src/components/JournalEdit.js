@@ -61,12 +61,13 @@ const JournalEdit = ({ journal }) => {
       return (
           journal !== undefined && (
               <div>
-                  <button type="primary" onClick={showModal}>Edit Journal</button>
+                  <div className='btn-holder'>
+                  <button className="journal_submit_button" type="primary" onClick={showModal}>Edit Journal</button>
+                  </div>
 
                   <Modal   visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} footer={[
-                    <Button type='primary' onClick={deleteOneJournal}>Delete</Button>,
-                    <Button key="submit" type="primary" onClick={handleOk}>
-              Submit Changes </Button>,
+                    <button key="submit" type="primary" onClick={handleOk}>
+              Close </button>,
   
                   ]}>
                       <form onSubmit={onJournalUpdate}>
@@ -103,8 +104,10 @@ const JournalEdit = ({ journal }) => {
                                 onChange={(e) => setCurrentDate(e.target.value)}
                             />
                         </div>
-                        <div>
-                            <button type="primary" type='submit'>Update Journal</button>
+                        <div className='update'>
+                        <button type='primary'  onClick={deleteOneJournal}>Delete</button>
+                            <button type="primary" style={{float:'right'}, {padding: '3px'}, {margin:'3px'} }type='submit'>Update</button>
+                            
                         </div>
 
                       </form>

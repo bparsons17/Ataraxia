@@ -8,10 +8,13 @@ import Post from "./Post";
 import CommentForm from "./CommentForm";
 
 
-const PostForm = ({post, userId}) => {
+const PostForm = ({userId, posts}) => {
     const [postText, setPostText] = useState('');
     const sessionUser = useSelector((state)=> state.session.user)
-    console.log(sessionUser.username)
+    // const posts = useSelector((state)=> state.post.post)
+    
+
+  
     
     const dispatch = useDispatch()
     const history = useHistory()
@@ -91,15 +94,18 @@ const PostForm = ({post, userId}) => {
             
                     <div className='username_div'>User: @{sessionUser.username}</div>
                     <div className="flex-1 px-2 pt-2 mt-2 flex-col">
-                        <textarea className=" bg-transparent text-gray-300 font-medium text-lg w-full" rows="2" cols="50" placeholder="What's happening?" name='post_text'
+                        <textarea className='bg-transparent text-gray-300 font-medium text-lg w-full focus:outline-none focus:ring focus:border-indigo-300' 
+                      rows="2" cols="50" placeholder="What's happening?" name='post_text'
                       type='text'
                       value={postText}
-                      onChange={(e)=> setPostText(e.target.value)} >{}</textarea>
+                      onChange={(e)=> setPostText(e.target.value)}>
+
+                      </textarea>
                     </div>                    
                 </div>
                   
                   <div>
-                      <button className='post_btn bg-indigo-500 w-48 mt-5 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full' type='submit'>Post</button>
+                      <button className='post_btn bg-indigo-500 w-48 mt-5 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-full' type='submit'>Post</button>
                   </div>
                   </div>
                   <div>

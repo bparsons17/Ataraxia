@@ -7,13 +7,10 @@ import LogoutButton from './auth/LogoutButton';
 
 
 
-const NavBar = ({ setAuthenticated }) => {
-  const sessionUser = useSelector((state) => state.session.user);
-  const [visible, setVisible] = useState(false);
-  const [isModalVisible, setIsModalVisible] = useState(false);
+const NavBar = () => {
+  
   const [buttonVisible, setButtonVisible] = useState(false);
-
-
+  const [showDrop, setShowDrop] = useState(false)
 
   const showButtonVisible = () => {
     if (buttonVisible === true) {
@@ -24,25 +21,7 @@ const NavBar = ({ setAuthenticated }) => {
     }
   };
 
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
 
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
-
-  const showDrawer = () => {
-    setVisible(true);
-  };
-
-  const onClose = () => {
-    setVisible(false);
-  };
 
 
   return (
@@ -52,11 +31,52 @@ const NavBar = ({ setAuthenticated }) => {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
             <div className="flex-shrink-0">
-              <img className="h-8 w-8" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow"></img>
+            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="50.000000pt" height="50.000000pt" viewBox="0 0 200.000000 200.000000"
+ preserveAspectRatio="xMidYMid meet">
+<metadata>
+Created by potrace 1.16, written by Peter Selinger 2001-2019
+</metadata>
+<g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)"
+fill="rgb(81,79,294)" stroke="none">
+<path d="M945 1746 c-22 -13 -95 -56 -163 -95 l-122 -72 2 -197 3 -196 168
+-97 168 -97 167 97 167 97 3 197 2 196 -117 69 c-244 142 -218 133 -278 98z
+m195 -125 l135 -78 0 -159 0 -159 -137 -78 -138 -79 -137 79 -138 79 0 159 0
+158 135 78 c74 43 137 78 140 78 3 0 66 -35 140 -78z"/>
+<path d="M980 1570 c0 -17 -9 -39 -20 -50 -15 -15 -20 -32 -18 -60 2 -45 -9
+-63 -23 -38 -10 18 -39 14 -39 -5 0 -6 8 -19 17 -29 16 -18 15 -21 -5 -63 -15
+-31 -19 -54 -15 -79 3 -20 9 -36 12 -36 4 0 21 29 39 65 31 64 32 65 72 65 40
+0 41 -1 72 -65 18 -36 35 -65 39 -65 3 0 9 16 12 36 4 25 0 48 -15 79 -20 42
+-21 45 -5 63 9 10 17 23 17 29 0 18 -30 24 -36 8 -12 -31 -24 -13 -24 34 0 31
+-5 53 -15 61 -8 7 -15 21 -15 30 0 32 -12 50 -31 50 -14 0 -19 -7 -19 -30z"/>
+<path d="M335 848 c-2 -13 -16 -88 -30 -168 -14 -80 -27 -155 -30 -167 -5 -21
+-2 -23 30 -23 30 0 35 3 35 24 0 43 10 56 45 56 31 0 34 -3 40 -40 6 -36 10
+-40 36 -40 37 0 37 -1 -4 210 l-32 165 -42 3 c-37 3 -43 0 -48 -20z"/>
+<path d="M520 811 c0 -10 -7 -21 -15 -25 -8 -3 -15 -17 -15 -31 0 -16 6 -25
+15 -25 12 0 15 -18 15 -104 0 -119 8 -136 66 -136 30 0 34 3 34 25 0 16 -6 25
+-15 25 -12 0 -15 17 -15 95 0 78 3 95 15 95 10 0 15 10 15 30 0 20 -5 30 -15
+30 -8 0 -15 9 -15 20 0 16 -7 20 -35 20 -28 0 -35 -4 -35 -19z"/>
+<path d="M680 783 c-33 -11 -40 -36 -40 -149 0 -141 3 -144 106 -144 l74 0 0
+150 0 149 -62 -1 c-35 0 -70 -3 -78 -5z"/>
+<path d="M860 640 l0 -150 30 0 30 0 0 104 c0 122 4 136 36 136 20 0 24 5 24
+30 0 32 -9 36 -41 20 -13 -7 -19 -7 -19 0 0 5 -13 10 -30 10 l-30 0 0 -150z"/>
+<path d="M1023 779 c-30 -11 -35 -39 -31 -164 2 -80 7 -108 18 -115 8 -5 48
+-10 88 -10 l72 0 0 150 0 149 -62 0 c-35 -1 -73 -5 -85 -10z"/>
+<path d="M1190 783 c0 -3 14 -37 32 -75 l32 -69 -32 -65 c-18 -35 -32 -69 -32
+-74 0 -6 14 -10 30 -10 27 0 33 6 50 43 l18 42 18 -42 c15 -39 21 -43 51 -43
+18 0 33 2 33 5 0 3 -16 37 -35 74 l-34 69 29 66 c17 36 30 70 30 76 0 5 -13
+10 -29 10 -25 0 -31 -6 -46 -42 l-17 -43 -16 43 c-15 38 -19 42 -49 42 -18 0
+-33 -3 -33 -7z"/>
+<path d="M1410 640 l0 -150 30 0 30 0 0 150 0 150 -30 0 -30 0 0 -150z"/>
+<path d="M1531 773 c-19 -13 -21 -24 -21 -129 0 -64 5 -124 10 -135 9 -16 22
+-19 85 -19 l75 0 0 149 0 150 -64 -1 c-40 0 -73 -6 -85 -15z"/>
+</g>
+</svg>
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-              <a href="/goals" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 text-white px-3 py-2 rounded-md text-sm font-medium">Goals</a>
+              <a href="/goals" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 text-white px-3 py-2 rounded-md text-sm font-medium" >Goals</a>
+              
 
               <a href="/journals" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Journal</a>
               <a href="/posts" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Community</a>
@@ -79,10 +99,10 @@ const NavBar = ({ setAuthenticated }) => {
                 </button>
               </div>
               {buttonVisible ? (
-                 <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-                 <a href="/profile" className="block px-4 py-2 text-sm text-indigo-500 hover:bg-indigo-800" role="menuitem">Your Profile</a>
+                 <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+                 <a href="/journal" className="block px-4 py-2 text-sm text-indigo-500 hover:bg-indigo-800" role="menuitem">Your Journals</a>
  
-                 <a href="/settings" className="block px-4 py-2 text-sm text-indigo-500 hover:bg-indigo-800" role="menuitem">Settings</a>
+                 <a href="/goal" className="block px-4 py-2 text-sm text-indigo-500 hover:bg-indigo-800" role="menuitem">Your Goals</a>
                   <div className="block px-4 py-2 text-sm text-indigo-500 hover:bg-indigo-700" role="menuitem">
                     <LogoutButton />
                   </div>
@@ -94,63 +114,10 @@ const NavBar = ({ setAuthenticated }) => {
               </div>
 
             </div>
-            <div className="-mr-2 flex md:hidden">
-      
-          <button type="button" className="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-            <span className="sr-only">Open main menu</span>
-            
-            <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-           
-            <svg className="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
 
           </div>
 
         </div>
-        <div class="md:hidden" id="mobile-menu">
-      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-        
-        <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
-
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
-
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
-
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
-
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Reports</a>
-      </div>
-      <div class="pt-4 pb-3 border-t border-gray-700">
-        <div class="flex items-center px-5">
-          <div class="flex-shrink-0">
-            <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""></img>
-          </div>
-          <div class="ml-3">
-            <div class="text-base font-medium leading-none text-white">Tom Cook</div>
-            <div class="text-sm font-medium leading-none text-gray-400">tom@example.com</div>
-          </div>
-          <button class="ml-auto bg-gray-800 flex-shrink-0 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-            <span class="sr-only">View notifications</span>
-            
-            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-            </svg>
-          </button>
-        </div>
-        <div class="mt-3 px-2 space-y-1">
-          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Your Profile</a>
-
-          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Settings</a>
-
-          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Sign out</a>
-        </div>
-      </div>
-    </div>
   </nav>
     </div>
   )
