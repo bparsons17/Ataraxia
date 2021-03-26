@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { signUp } from '../../services/auth';
 import { createUser, login } from '../../store/session'
+import '../style/signup.css'
 
 const SignUpForm = ({authenticated, setAuthenticated}) => {
   const [username, setUsername] = useState("");
@@ -72,55 +73,67 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
-      <div>
-        <label>User Name</label>
+    <div className='background-img'>
+    <form className='signup-form'onSubmit={onSignUp}>
+      <div className='fields'>
+        
         <input
+        className='bg-transparent'
+          placeholder='User Name'
           type="text"
           name="username"
           onChange={updateUsername}
           value={username}
         ></input>
       </div>
-      <div>
-        <label>First Name</label>
+      <div className='fields'>
+        
         <input
+        className='bg-transparent'
+        placeholder='First Name'
           type="text"
           name="firstname"
           onChange={updateFirstname}
           value={firstname}
         ></input>
       </div>
-      <div>
-        <label>Last Name</label>
+      <div className='fields '>
+        
         <input
+        className='bg-transparent'
+          placeholder='Last Name'
           type="text"
           name="lastname"
           onChange={updateLastname}
           value={lastname}
         ></input>
       </div>
-      <div>
-        <label>Email</label>
+      <div className='fields'>
         <input
+        className='bg-transparent'
+        placeholder='Email'
           type="text"
           name="email"
           onChange={updateEmail}
           value={email}
         ></input>
       </div>
-      <div>
-        <label>Password</label>
+      <div className='fields'>
+        
         <input
+        className='bg-transparent'
+        placeholder='Password'
           type="password"
           name="password"
           onChange={updatePassword}
           value={password}
         ></input>
       </div>
-      <div>
-        <label>Repeat Password</label>
+      <div className='fields'>
+        
         <input
+        className='bg-transparent'
+        placeholder='Repeated Password'
           type="password"
           name="repeat_password"
           onChange={updateRepeatPassword}
@@ -140,6 +153,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
             Demo User
           </button>
     </form>
+    </div>
   );
 };
 

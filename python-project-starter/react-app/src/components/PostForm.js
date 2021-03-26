@@ -94,7 +94,7 @@ const PostForm = ({userId, posts}) => {
             
                     <div className='username_div'>User: @{sessionUser.username}</div>
                     <div className="flex-1 px-2 pt-2 mt-2 flex-col">
-                        <textarea className='bg-transparent text-gray-300 font-medium text-lg w-full focus:outline-none focus:ring focus:border-purple-300' 
+                        <textarea className='bg-transparent text-gray-300 font-medium text-lg w-full focus:outline-none focus:ring focus:border-indigo-300' 
                       rows="2" cols="50" placeholder="What's happening?" name='post_text'
                       type='text'
                       value={postText}
@@ -105,7 +105,7 @@ const PostForm = ({userId, posts}) => {
                 </div>
                   
                   <div>
-                      <button className='post_btn bg-indigo-500 w-48 mt-5 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full' type='submit'>Post</button>
+                      <button className='post_btn bg-indigo-500 w-48 mt-5 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-full' type='submit'>Post</button>
                   </div>
                   </div>
                   <div>
