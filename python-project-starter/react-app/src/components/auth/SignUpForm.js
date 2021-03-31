@@ -42,7 +42,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
 
   const demoLogin = async (e) => {
     e.preventDefault();
-    return dispatch(login({  email: "demo@demo.com", password: "password" }));
+    return dispatch(login({  email: "demo@aa.io", password: "password" }));
   };
 
   const updateFirstname = (e) => {
@@ -68,8 +68,8 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
     setRepeatPassword(e.target.value);
   };
 
-  if (authenticated) {
-    return <Redirect to="/" />;
+  if (sessionUser) {
+    return <Redirect to="/posts" />;
   }
 
   return (
@@ -146,7 +146,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
             className="submit_button"
             onClick={demoLogin}
             shape="round"
-            htmlType="submit"
+            type="submit"
             size="large"
             type="primary"
           >

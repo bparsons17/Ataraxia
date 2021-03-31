@@ -66,7 +66,7 @@ const JournalEdit = ({ journal }) => {
                   </div>
 
                   <Modal   visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} footer={[
-                    <button key="submit" type="primary" onClick={handleOk}>
+                    <button key="submit" type="primary" onClick={handleOk} onSubmit={onJournalUpdate}>
               Close </button>,
   
                   ]}>
