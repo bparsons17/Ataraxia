@@ -26,9 +26,9 @@ const Journal = ({ id }) => {
                             <h2 className='card2'>Your Entry</h2>
                         </div>
                 
-                        <div className="card_info text-gray-700 text-base">Date Created: {journal.currentDate}</div>
-                        <div className="card_info text-gray-700 text-base">How you were feeling: {journal.mood}</div>
-                        <div className="card_info text-gray-700 text-base">
+                        <div className="card_info text-gray-300 text-base">Date Created: {journal.currentDate}</div>
+                        <div className="card_info text-gray-300 text-base">How you were feeling: {journal.mood}</div>
+                        <div className="card_info text-gray-300 text-base">
                             <div className='p'>Your entry: </div>
                             <div className='card_info2'>  {journal.text}</div> 
                         </div>
