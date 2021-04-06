@@ -46,9 +46,10 @@ const Journal = ({ id }) => {
                             <div class="w-full">
 
                                 <div class="flex items-center">
-                                    <div class="flex-1 text-white border-2 border-indigo-600"> Your Entry: {journal.text}
-                                       
+                                    <div class="flex-1 text-white "> Your Entry: {journal.text}
+                                    
                                     </div>
+                                    <JournalEdit journal={journal} />
                                         
                                 </div>
                             </div>
