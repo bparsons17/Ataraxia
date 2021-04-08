@@ -45,10 +45,10 @@ const Journal = ({ id }) => {
                         <div class="flex">
                             <div class="w-full">
 
-                                <div class="flex items-center">
-                                    <div class="flex-1 text-white "> Your Entry: {journal.text}
+                                <div class="flex items-center leading-6 font-medium text-white">
+                                    <span class="flex-1 text-sm leading-5 font-medium text-grey-400 group-hover:text-gray-300 transition ease-in-out duration-75 "> Your Entry: {journal.text}
                                     
-                                    </div>
+                                    </span>
                                     <JournalEdit journal={journal} />
                                         
                                 </div>
