@@ -9,6 +9,7 @@ const Splash = () => {
             <Hero />
             <hr class="border-b-2 border-gray-600"></hr>
             <Features />
+            <hr class="border-b-2 border-gray-600"></hr>
         </div>
     )
 }

@@ -20,6 +20,7 @@ import CommentForm from './components/CommentForm'
 import Splash from './components/Splash'
 
 
+
 function App() {
   const dispatch = useDispatch();
   // const [authenticated, setAuthenticated] = useState(false);
@@ -80,6 +81,7 @@ function App() {
           <Splash />
         </ProtectedRoute>
       </Switch>
+      
     </BrowserRouter>
   );
 }
