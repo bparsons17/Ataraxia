@@ -112,9 +112,9 @@ const Info = ({ goal }) => {
                                 onChange={(e) => setDeadline(e.target.value)}
                             />
                         </div>
-                        <div className='update'>
-                        <button type='primary' onClick={deleteOneGoal}>Delete Goal</button>
-                            <button type='primary' style={{float:'right'}, {padding: '3px'}, {margin:'3px'} } type='submit'>Update Goal</button>
+                        <div  className='update' >
+                        <button className='modal_btns' type='primary' style={{float:'right'}, {padding: '3px'}, {margin:'3px'} } onClick={deleteOneGoal}>Delete Goal</button>
+                        <button className='modal_btns' type='primary' type='submit'>Update Goal</button>
                             
                         </div>
 

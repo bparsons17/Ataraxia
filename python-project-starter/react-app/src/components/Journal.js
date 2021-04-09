@@ -19,31 +19,52 @@ const Journal = ({ id }) => {
         <div className='yug'>
             <h1 className='header-tag'>Journal Board</h1>{sessionJournals &&
             sessionJournals.map((journal) => (
-                <div className='header p-10'>
-                    <div className='journal_entry card max-w-sm rounded overflow-hidden '>
-                    
-                        <div className='journal-title'>
-                            <h2 className='card2'>Your Entry</h2>
-                        </div>
-                
-                        <div className="card_info text-gray-300 text-base">Date Created: {journal.currentDate}</div>
-                        <div className="card_info text-gray-300 text-base">How you were feeling: {journal.mood}</div>
-                        <div className="card_info text-gray-300 text-base">
-                            <div className='p'>Your entry: </div>
-                            <div className='card_info2'>  {journal.text}</div> 
-                        </div>
-                        <div className='button_div inline-block mr-2 mt-2'>
-                            {/* <button type="submit" className="button focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-purple-400 to-purple-600 transform hover:scale-110">Edit</button> */}
-                            {/* <button className="journal_submit_button"> */}
-                                <JournalEdit journal={journal} />
-                            {/* </button> */}
+                <div className='wrapper2 border-l-2 border-r-2 border-gray-600'>
+                    <div class="flex flex-shrink-0 p-4 pb-0 justify-center"> 
+                            <div class="flex  flex-column ">
+                                <div class="ml-3 flex flex-column w-full">
+                                   
+                                    <div class="text-base  font-medium text-white flex-shrink float-right">
+                            {journal.currentDate}
+                                    </div>
+                        
+                                    
+                                </div>
+                                
+                            </div>
+                        
+                    </div>
+                    <div class="pl-10 pr-10">
+                    <div class="text-base leading-6 font-medium text-white">
+                                        
+                        <span class="text-sm leading-5 font-medium text-grey-400 group-hover:text-gray-300 transition ease-in-out duration-75">
+                            Mood: {journal.mood}
+                        </span>
+                    </div>
+
+                        <div class="flex">
+                            <div class="w-full">
+
+                                <div class="flex items-center leading-6 font-medium text-white">
+                                    <span class="flex-1 text-sm leading-5 font-medium text-grey-400 group-hover:text-gray-300 transition ease-in-out duration-75 "> Your Entry: {journal.text}
+                                    
+                                    </span>
+                                    <JournalEdit journal={journal} />
+                                        
+                                </div>
+                            </div>
+
 
                         </div>
-
 
                     </div>
 
+
+                    <hr class="border-b-2 border-gray-600"></hr>
+
                 </div>
+                
+                    
 
             ))}</div>
 

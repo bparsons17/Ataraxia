@@ -66,7 +66,7 @@
 }
 .update {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 10px;
 }
 .col1 {

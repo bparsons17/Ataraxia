@@ -80,7 +80,7 @@ const Post = ({props}) => {
                             <div class="flex items-center">
                                 <div class="ml-3">
                                     <p class="text-base leading-6 font-medium text-white">
-                                        {post.firstname} {post.lastname}
+                                        
                                         <span class="text-sm leading-5 font-medium text-grey-400 group-hover:text-gray-300 transition ease-in-out duration-75">
                                             @{post.username}
                                         </span>

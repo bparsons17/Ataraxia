@@ -62,7 +62,7 @@ const JournalEdit = ({ journal }) => {
           journal !== undefined && (
               <div>
                   <div className='btn-holder'>
-                  <button className="journal_submit_button" type="primary" onClick={showModal}>Edit Journal</button>
+                  <button className="journal_submit_button" type="primary" onClick={showModal}>Edit</button>
                   </div>
 
                   <Modal   visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} footer={[

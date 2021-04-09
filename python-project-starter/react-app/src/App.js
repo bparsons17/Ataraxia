@@ -17,6 +17,8 @@ import { authenticate } from "./services/auth";
 import PostForm from "./components/PostForm";
 import Post from "./components/Post";
 import CommentForm from './components/CommentForm'
+import Splash from './components/Splash'
+
 
 
 function App() {
@@ -76,9 +78,10 @@ function App() {
           <CommentForm />
         </ProtectedRoute> */}
         <ProtectedRoute path="/" exact={true} authenticated={!!user}>
-          <h1>My Home Page</h1>
+          <Splash />
         </ProtectedRoute>
       </Switch>
+      
     </BrowserRouter>
   );
 }

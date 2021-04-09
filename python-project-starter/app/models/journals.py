@@ -5,7 +5,7 @@ class Journal(db.Model):
 
 
     id = db.Column(db.Integer, primary_key=True)
-    text = db.Column(db.String(255), nullable=False)
+    text = db.Column(db.String(1000), nullable=False)
     mood = db.Column(db.String(255), nullable=False)
     currentDate = db.Column(db.Date)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'))
