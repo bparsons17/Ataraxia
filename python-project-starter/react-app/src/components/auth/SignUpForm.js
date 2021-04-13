@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import { signUp } from '../../services/auth';
 import { createUser, login } from '../../store/session'
 import '../style/signup.css'
 
