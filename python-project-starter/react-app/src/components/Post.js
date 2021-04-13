@@ -15,7 +15,7 @@ import 'antd/dist/antd.css';
 
 
 
-const Post = ({props}) => {
+const Post = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user)
     const sessionPost = useSelector((state) => state.post.post)
@@ -24,6 +24,7 @@ const Post = ({props}) => {
     const [showComments, setShowComments] = useState(false)
     const [showCommentForm, setShowCommentForm] = useState(false)
     // const [liked, setLiked] = useState(false)
+    
     
     const showPostComments = () => {
         if (showComments === false) {

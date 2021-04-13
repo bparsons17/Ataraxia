@@ -21,6 +21,12 @@ const LoginForm = () => {
     return <Redirect to="/posts" />;
   }
 
+  const demoLogin = async (e) => {
+    e.preventDefault();
+    return dispatch(login({  email: "demo@aa.io", password: "password" }));
+  };
+
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -71,6 +77,16 @@ const LoginForm = () => {
             type="submit"
           >
             Login
+          </button>
+          <button
+            className="submit_button"
+            onClick={demoLogin}
+            shape="round"
+            type="submit"
+            size="large"
+            type="primary"
+          >
+            Demo User
           </button>
         </form>
       </div>
