@@ -78,7 +78,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           <h1 className="form_title">Sign Up</h1>
           <hr className="break"></hr>
           <p className="form_text">
-            Nice to meet you! Sign up for lists galore! <br></br>
+            Nice to meet you! Sign up to set goals, journal and interact with our community! <br></br>
             Already have an account?
             <a href="/login" className="form_link">
               Log in

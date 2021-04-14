@@ -29,9 +29,9 @@ const Goal = ({ user, goal }) => {
             <div class="flex  flex-column ">
               <div class="ml-3 flex flex-column w-full">
 
-                <div class="text-base font-bold text-gray-400 flex-shrink float-right">
+                <h2 class="text-xl font-extrabold text-gray-200 flex-shrink float-right">
                   {goal.title}
-                </div>
+                </h2>
 
 
               </div>
@@ -40,20 +40,20 @@ const Goal = ({ user, goal }) => {
 
           </div>
           <div class="pl-10 pr-10">
-            <div class="text-base leading-6 font-bold text-gray-400">
+            <div class="text-base leading-6 font-bold text-gray-200">
 
-              <span class="text-sm leading-5 font-bold text-gray-400 ">
+              <div class="text-sm leading-5 font-bold text-gray-200 py-2">
                 Goal Description: {goal.description}
-              </span>
+              </div>
             </div>
 
             <div class="flex">
               <div class="w-full">
 
-                <div className="flex items-center leading-6 text-xl text-gray-400">
-                  <span className="flex-1 text-sm leading-5 font-bold text-grey-400  "> steps to complete goal: {goal.steps}
+                <div className="flex items-center leading-6 text-xl text-gray-200">
+                  <div className="flex-1 text-sm leading-5 font-bold text-gray-200 py-2 "> Steps to complete goal: {goal.steps}
 
-                  </span>
+                  </div>
 
 
 
@@ -61,16 +61,10 @@ const Goal = ({ user, goal }) => {
               </div>
 
             </div>
-            <div className='spacing flex-1 flex flex-col justify-end text-sm leading-5 font-bold text-gray-400 w-50' >
+            <div className='spacing flex-1 flex  justify-end text-sm leading-5 font-bold text-gray-200' >
               Complete by: {goal.deadline}
+              <Info goal={goal} />
 
-              <div className='edit'>
-                <Info goal={goal} />
-              </div>
-                 
-            
-               
-          
             </div>
 
 

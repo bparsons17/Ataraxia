@@ -42,7 +42,7 @@ const LoginForm = () => {
           <h1 className="form_title">Log In</h1>
           <hr className="break"></hr>
           <p className="form_text">
-            Welcome back! Log in to make more lists! <br></br>
+            Welcome back! Log in to connect with our community! <br></br>
             First time?
             <a href="/sign-up" className="form_link">
               Make an account
