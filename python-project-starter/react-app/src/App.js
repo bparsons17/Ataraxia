@@ -23,7 +23,7 @@ import Splash from './components/Splash'
 
 function App() {
   const dispatch = useDispatch();
-  // const [authenticated, setAuthenticated] = useState(false);
+  const [authenticated, setAuthenticated] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const user = useSelector((state)=> state.session.user)
   const goal = useSelector((state) => state.goal.goal)
@@ -33,7 +33,7 @@ function App() {
     dispatch(restoreUser()).then(() => {
       setLoaded(true);
     });
-  }, []);
+  }, [dispatch]);
 
   if (!loaded) {
     return null;
