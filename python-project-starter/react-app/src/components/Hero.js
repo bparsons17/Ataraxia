@@ -34,7 +34,7 @@ function Hero() {
                   <a className="btn text-white bg-indigo-600 hover:bg-indigo-600 w-full mb-4 sm:w-auto sm:mb-0" href="/login">Login</a>
                 </div>
                 <div>
-                  <a className="btn text-white bg-gray-900 hover:bg-indigo-600 w-full sm:w-auto sm:ml-4" href="/signup">Sign up</a>
+                  <a className="btn text-white bg-gray-900 hover:bg-indigo-600 w-full sm:w-auto sm:ml-4" href="/sign-up">Sign up</a>
                 </div>
               </div>
             </div>
