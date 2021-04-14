@@ -68,7 +68,7 @@ const SignUpForm = () => {
   };
 
   if (sessionUser) {
-    return <Redirect to="/goals" />;
+    return <Redirect to="/posts" />;
   }
 
   return (

@@ -18,7 +18,7 @@ const LoginForm = () => {
   }
 
   if (sessionUser) {
-    return <Redirect to="/goals" />;
+    return <Redirect to="/posts" />;
   }
 
   const demoLogin = async (e) => {
