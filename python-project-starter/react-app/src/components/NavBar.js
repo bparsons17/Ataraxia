@@ -94,15 +94,15 @@ m195 -125 l135 -78 0 -159 0 -159 -137 -78 -138 -79 -137 79 -138 79 0 159 0
               </button>
                 <div className="ml-3 relative">
                 <div>
-                <button onClick={showButtonVisible} className="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true">
+                <button onClick={showButtonVisible} className="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none  focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true">
                   <img className="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""></img>
                 </button>
               </div>
               {buttonVisible ? (
                  <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-                 <a href="/journal" className="block px-4 py-2 text-sm text-indigo-500 hover:bg-indigo-800" role="menuitem">Your Journals</a>
+                 <a href="/journal" className="block px-4 py-2 text-sm text-indigo-600 hover:bg-indigo-800" role="menuitem">Your Journals</a>
  
-                 <a href="/goal" className="block px-4 py-2 text-sm text-indigo-500 hover:bg-indigo-800" role="menuitem">Your Goals</a>
+                 <a href="/goal" className="block px-4 py-2 text-sm text-indigo-600 hover:bg-indigo-800" role="menuitem">Your Goals</a>
                   <div className="block px-4 py-2 text-sm text-indigo-500 hover:bg-indigo-700" role="menuitem">
                     <LogoutButton />
                   </div>

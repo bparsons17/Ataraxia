@@ -32,3 +32,15 @@
     margin: 5px;
     display: flex;
 }
+.spacing {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    align-items: center;
+}
+.edit {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}

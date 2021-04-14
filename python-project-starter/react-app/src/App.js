@@ -43,6 +43,9 @@ function App() {
     <BrowserRouter>
       <NavBar  />
       <Switch>
+      <Route path="/" exact={true} >
+          <Splash />
+        </Route>
         <Route path="/login" exact={true}>
           <LoginForm
           />
@@ -77,7 +80,7 @@ function App() {
         {/* <ProtectedRoute path="/comments" exact={true} authenticated={!!user}>
           <CommentForm />
         </ProtectedRoute> */}
-        <ProtectedRoute path="/" exact={true} authenticated={!!user}>
+        <ProtectedRoute path="/" exact={true} >
           <Splash />
         </ProtectedRoute>
       </Switch>

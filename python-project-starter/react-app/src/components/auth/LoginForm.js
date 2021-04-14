@@ -21,6 +21,12 @@ const LoginForm = () => {
     return <Redirect to="/posts" />;
   }
 
+  const demoLogin = async (e) => {
+    e.preventDefault();
+    return dispatch(login({  email: "demo@aa.io", password: "password" }));
+  };
+
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -36,7 +42,7 @@ const LoginForm = () => {
           <h1 className="form_title">Log In</h1>
           <hr className="break"></hr>
           <p className="form_text">
-            Welcome back! Log in to make more lists! <br></br>
+            Welcome back! Log in to connect with our community! <br></br>
             First time?
             <a href="/sign-up" className="form_link">
               Make an account
@@ -71,6 +77,16 @@ const LoginForm = () => {
             type="submit"
           >
             Login
+          </button>
+          <button
+            className="submit_button"
+            onClick={demoLogin}
+            shape="round"
+            type="submit"
+            size="large"
+            type="primary"
+          >
+            Demo User
           </button>
         </form>
       </div>
