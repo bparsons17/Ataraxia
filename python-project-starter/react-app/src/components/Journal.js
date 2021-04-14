@@ -6,20 +6,23 @@ import JournalEdit from '../components/JournalEdit'
 const Journal = ({ id }) => {
     const dispatch = useDispatch();
     const sessionJournals = useSelector((state) => state.journal.journal)
+    const [isLoaded, setIsLoaded] = useState(false)
 
     console.log(sessionJournals)
 
     useEffect(() => {
-        dispatch(seeJournal())
+        dispatch(seeJournal()).then(() => {
+            setIsLoaded(true)
+        })
     }, [])
 
     // console.log(sessionJournals)
 
     return (
         <div className='yug'>
-            <h1 className='header-tag text-gray-200'>Journal Board</h1>{sessionJournals &&
+            <h1 className='header-tag text-gray-200'>Journal Board</h1>{isLoaded &&
             sessionJournals.map((journal) => (
-                <div className='wrapper2 border-l-2 border-r-2 border-gray-600'>
+                <div key={journal.id} className='wrapper2 border-l-2 border-r-2 border-gray-600'>
                     <div class="flex flex-shrink-0 p-4 pb-0 justify-center"> 
                             <div class="flex  flex-column ">
                                 <div class="ml-3 flex flex-column w-full">

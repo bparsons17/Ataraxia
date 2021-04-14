@@ -11,18 +11,21 @@ const Goal = ({ user, goal }) => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const sessionGoals = useSelector((state) => (state.goal.goal))
+  const [isLoaded, setIsLoaded] = useState(false)
   console.log(sessionGoals)
 
 
   useEffect(() => {
-    dispatch(seeGoal())
+    dispatch(seeGoal()).then(() => {
+      setIsLoaded(true)
+  })
   }, [])
 
 
   console.log(sessionGoals)
 
   return (
-    <div className='yug'>{sessionGoals &&
+    <div className='yug'>{isLoaded &&
       sessionGoals.map((goal) => (
         <div key={goal.id} className='wrapper2 border-l-2 border-r-2 border-gray-600'>
           <div class="flex flex-shrink-0 p-4 pb-0 justify-center">
