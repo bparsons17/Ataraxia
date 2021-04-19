@@ -4,7 +4,7 @@
 ---
 
 **Ataraxia** is a mental health application designed to allow users to set goals, journal and interact with a community of people going through similar things.
-<img alt="Logo" align="right" src="img/Screen Shot 2021-04-12 at 12.35.44 AM.png" width="20%" />
+
 
 * Users can **log in** or **sign up** to access functionality the site.
 * A user has the ability to **make posts, journals, and goals**.
@@ -12,11 +12,8 @@
 * The **community page** allows users to make posts that can be commented on and liked by other users.  
 
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/70561117/109456977-c77e3500-7a0e-11eb-9808-ea5c5db47d77.PNG">
-</p>
 
-<h2>Try the site live: <a href=https://ataraxia-app.herokuapp.com/>Here</a> <b>|</b> Check out our <a href="https://github.com/midigi/a_sauna/wiki">documentation</a></h2>
+<h2>Try the site live: <a href=https://ataraxia-app.herokuapp.com/>Here</a> <b>|</b> Check out our <a href="https://github.com/bparsons17/Ataraxia">documentation</a></h2>
 
 ## How to run the site locally
 
@@ -72,82 +69,16 @@ much more enjoyable!
 * Postman made route testing very easy and fun!
 * Postbird, its wonderful GUI made all the difference!
 
-## Features that we implemented
-The first big feature we tackled is the searching algorithm,
-which populates the page with results containing either a question's
-title or its message. 
-    ```
-   TBD
-    ```
-<details><summary><b>How it was done</b></summary>
-
-1. We started by extracting the search term from the POST request.
-```
-  TBD
-```
-2. Then we queried the database for questions where either the question title 
-  or the question message (case insensitive) matched the search term.
-  
-    ```
-    TBD
-    ```
-    
-3. We included each question's topic, expertise level, and user, and 
-  ordered the results so that the most recent question appears first. 
-
-    ```
-    TBD
-    ```    
+   
 
 </details>
 
-The other big feature that we implemented was a sorting algorithm on our search results.
-
-    ```
-    TBD
-    ```
-<details><summary><b>How it was done</b></summary>
-
-1. We started by populating the dropdown menus for Topic and Expertise Level on the 
-search results page to reflect the topics and expertise levels of the result questions:
-
-    ```
-     TBD
-    ```
-2. Then we cleared local storage when the search results page was loaded 
-in order to make space for our sorting function variables:
-
-    ```    
-    TBD
-    ```
-    
-    
-3. We rendered the dropdown select menus with the content from our query in step 1, 
-then set up an event listener to save the selected value to local storage:
-    ```
-    TBD
-    ```
-      
-4. We called a helper function on each of our result divs to filter results
-based on the variables in local storage and render them dynamically:
-
-    ```
-    TBD
-    ```
-    ```
-     TBD
-    ```
-</details>
 
 ## Challenges throughout the development process
-We faced a few challenges while we were building Aurora:
+I faced a few challenges while I was building Ataraxia:
 
-1. We encountered a merge issue with one of our features that took a long time to sort out.
-Make sure you stay up to date with ```main```, folks!
-
-2. It took us a long time to figure out what the best way to sort our search results was.
-Thankfully, we were able to reference some other people's strategies and come up with something
-that fit our project.
+1. I struggled to get the data to persist like it should at first. I was able to solve that by changing some of code in my redux store.
+2. The like feature has been difficult for me so far.
 
 
 ## Developer
