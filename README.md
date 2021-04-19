@@ -3,7 +3,7 @@
 
 ---
 
-**Asauna** is a mental health application designed to allow users to set goals, journal and interact with a community of people going through similar things.
+**Ataraxia** is a mental health application designed to allow users to set goals, journal and interact with a community of people going through similar things.
 <img alt="Logo" align="right" src="https://user-images.githubusercontent.com/70561117/103400052-8645d380-4af8-11eb-8c61-1f2bab847bfd.png" width="20%" />
 
 * Users can **log in** or **sign up** to access functionality the site.
