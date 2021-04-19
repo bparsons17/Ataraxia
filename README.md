@@ -28,7 +28,7 @@
   * Seed all data with ```npx dotenv sequelize db:seed:all```
 - Use the start script ```npm start``` to run the server
 
-## Technologies used in Aurora
+## Technologies used in Ataraxia
 <p align="left">
 <a href="https://flask.palletsprojects.com/en/1.1.x/">
 <img src="https://img.shields.io/badge/Flask-v1.12-blue">
@@ -155,7 +155,7 @@ that fit our project.
 <img alt="Developer" align="right" src="https://user-images.githubusercontent.com/70561117/103400187-079d6600-4af9-11eb-8d20-00c8f88e3936.png" width="20%" />
 <table style="width:100%">
   <tr>
- 
+ zz
     <th><a href="https://github.com/bparsons17" rel="nofollow"><img src="https://avatars.githubusercontent.com/u/67128124?s=460&v=4" height="auto" width="100"></a></th>
   </tr>
   <tr>
