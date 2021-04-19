@@ -13,7 +13,7 @@
 
 
 
-<h2>Try the site live: <a href=https://ataraxia-app.herokuapp.com/>Here</a> <b>|</b> Check out our <a href="https://github.com/bparsons17/Ataraxia">documentation</a></h2>
+<h2>Try the site live: <a href=https://ataraxia-app.herokuapp.com/>Here</a> <b>|</b> Check out my <a href="https://github.com/bparsons17/Ataraxia">documentation</a></h2>
 
 ## How to run the site locally
 
@@ -49,10 +49,10 @@
 </p>
 
 
-**Flask** was used for our backend and it reduced a ton of boiler plate 
-code, freeing us to implement more features. 
+**Flask** was used for my backend and it reduced a ton of boiler plate 
+code, freeing me to implement more features. 
 
-**pyenv** was our software registry, and within it we installed many packages;
+**pyenv** was my software registry, and within it I installed many packages;
 some notable examples include:
 * 
 * 
@@ -97,4 +97,4 @@ I faced a few challenges while I was building Ataraxia:
   </tr>
 </table>
 
-<p> <i>Thank you for reading our project README ❤️</i> </p>
+<p> <i>Thank you for reading my project README ❤️</i> </p>
