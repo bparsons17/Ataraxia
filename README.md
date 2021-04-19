@@ -7,9 +7,9 @@
 <img alt="Logo" align="right" src="https://user-images.githubusercontent.com/70561117/103400052-8645d380-4af8-11eb-8c61-1f2bab847bfd.png" width="20%" />
 
 * Users can **log in** or **sign up** to access functionality the site.
-* A user has the ability to **make projects** with both members and tasks.
-* Posted tasks can be **completed** with their due date, status and assignee all changeable.
-* The **profile page** hosts information about each user including their current projects and tasks.  
+* A user has the ability to **make posts, journals, and goals**.
+* Posted goals and journals can be **posted** with their content editable, posts and comments however can not be edited after they have been posted .
+* The **community page** allows users to make posts that can be commented on and liked by other users.  
 
 
 <p align="center">
