@@ -12,10 +12,12 @@ import setLike from '../store/posts'
 import { useParams } from "react-router-dom";
 import {  Button, Modal } from "antd";
 import 'antd/dist/antd.css';
+import { postLike } from '../store/postLike'
+import PostLike from "./PostLike";
 
 
 
-const Post = () => {
+const Post = ({user, post}) => {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user)
     const sessionPost = useSelector((state) => state.post.post)
@@ -23,8 +25,9 @@ const Post = () => {
     const [isLoaded, setIsLoaded] = useState(false)
     const [showComments, setShowComments] = useState(false)
     const [showCommentForm, setShowCommentForm] = useState(false)
-    // const [liked, setLiked] = useState(false)
     
+
+  
     
     const showPostComments = () => {
         if (showComments === false) {
@@ -100,13 +103,8 @@ const Post = () => {
                             <div class="w-full">
 
                                 <div class="flex items-center">
-                                    <div class="flex-1 text-center"> { }
-                                        <button href="#" class="w-12 mt-1 group flex items-center text-gray-500 px-3 py-2 text-base leading-6 font-medium rounded-full hover:bg-indigo-800 hover:text-indigo-300">
-
-                                            <svg class="text-center h-7 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
-                                        </button>
-                                    </div>
-
+                                    
+                                    <PostLike postId={post.id}/>
 
                                     <div class="comment flex-1 text-center py-2 m-2"> {showCommentForm === false && (
                                         <div className='message-icon'>

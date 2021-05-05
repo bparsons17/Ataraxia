@@ -1,7 +1,15 @@
 const SET_POST = "post/setPost";
 const GET_POST = "post/getPost";
 const REMOVE_POST = "post/removePost";
-const LIKES =  "post/likes"
+const UPDATE_POST = "posts/UPDATE_POST";
+
+
+const updatePosts = (post) => {
+  return {
+    type: UPDATE_POST,
+    post,
+  };
+};
 
 
 const setPost = (post) => ({
@@ -17,11 +25,6 @@ const setPost = (post) => ({
   const removePost = (postId) => ({
     type: REMOVE_POST,
     payload: postId
-  })
-  const likes = (post) => ({
-    type: LIKES,
-    payload: post
-
   })
 
   export const seePost = () => async (dispatch) => {
@@ -40,7 +43,7 @@ const setPost = (post) => ({
     });
     const data = await res.json();
     console.log(data)
-    dispatch(likes(data));
+    dispatch(updatePosts(data));
     return res
   };
 
@@ -48,6 +51,7 @@ const setPost = (post) => ({
   export const createPost = ({
     postText,
     userId,
+    id
   }) => async (dispatch) => {
     const res = await fetch("/api/posts/", {
       method: 'POST',
@@ -57,6 +61,7 @@ const setPost = (post) => ({
       body: JSON.stringify({
         postText,
         userId,
+        id
       }),
     });
     console.log(res)
@@ -72,6 +77,17 @@ const setPost = (post) => ({
     const deleted = await res.json();
     dispatch(removePost(deleted))
   }
+
+  export const updatePostLikes = (like) => async (dispatch) => {
+    const { postId } = like;
+    const response = await fetch(`/api/posts/${postId}`);
+    if (response.ok) {
+      const res = await response.json();
+      dispatch(updatePosts(res));
+    }
+    return response;
+  };
+  
 
 
   const initialState = {};
@@ -93,12 +109,11 @@ const setPost = (post) => ({
             return item.id !== action.payload.id
           })
           return {...state, post: newPostsArray}
-        case LIKES:
+        case UPDATE_POST:
             const newPosts = { ...state };
             const index = action.post.id;
             newPosts[index] = action.post;
             return newPosts;
-      
       default:
         return state;
     }
