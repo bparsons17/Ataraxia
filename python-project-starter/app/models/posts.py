@@ -19,12 +19,14 @@ class Post(db.Model):
       username = user["username"]
       firstname = user['firstname']
       lastname = user['lastname']
+      likesUsers = [like.to_list() for like in self.postLikes]
       return {
           "id": self.id,
           "postText": self.postText,
           "userId": self.userId,
           'username': username,
           'firstname': firstname,
-          'lastname': lastname
+          'lastname': lastname,
+          'likesUsers': likesUsers,
         }
 
