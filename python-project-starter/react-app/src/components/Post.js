@@ -104,7 +104,7 @@ const Post = ({user, post}) => {
 
                                 <div class="flex items-center">
                                     
-                                    <PostLike postId={post.id}/>
+                                    <PostLike postId={post.id} post={post}/>
 
                                     <div class="comment flex-1 text-center py-2 m-2"> {showCommentForm === false && (
                                         <div className='message-icon'>
